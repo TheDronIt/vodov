@@ -1,0 +1,117 @@
+{% load static %}
+<!-- header -->
+<header class="header headerMainPage">
+    <div class="header-container">
+        <div class="btn btn-burger" action="TOGGLE_MENU">
+            <div class="btn__icon"></div>
+        </div>
+
+        <div class="header__left">
+            <a href="/" class="header__logo">
+                <img src="{% static 'web/img/logo1.png' %}" alt="" />
+            </a>
+
+            <ul class="header__nav">
+                <li class="header__nav_item"><a href="/catalog?product=%D0%90%D1%80%D0%B3%D0%B5%D0%BB%D0%BB%D0%B8%D1%82&type=16">Каталог</a></li>
+                <li class="header__nav_item"><a href="/news">Новости</a></li>
+                <li class="header__nav_item"><a href="/contacts">Команда</a></li>
+            </ul>
+
+            <ul class="alfaMenu">
+            </ul>                    
+        </div>
+
+        <div class="header__right">
+            <a href="tel:88000000000" class="link-phone">8 (800) 000-00-00</a>
+            <div class="header__search">
+                <div class="btn btn-search" action="OPEN_HEADER_SEARCH">
+                    <div class="btn__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Слой_1" x="0px" y="0px" viewBox="0 0 363.9 361.8" style="enable-background:new 0 0 363.9 361.8;" xml:space="preserve">
+                            <path class="st0" d="M357.6,342.6l-87.7-87.7c23.5-27,37.8-62.3,37.8-100.9c0-84.9-69-153.8-153.8-153.8C69,0.2,0,69.2,0,154    s69,153.8,153.8,153.8c38.6,0,73.8-14.2,100.9-37.8l87.7,87.7c2.1,2.1,4.9,3.2,7.6,3.2c2.7,0,5.5-1,7.6-3.2    C361.8,353.6,361.8,346.7,357.6,342.6L357.6,342.6z M21.5,154c0-73,59.4-132.2,132.2-132.2c73,0,132.2,59.4,132.2,132.2    s-59.3,132.3-132.2,132.3C80.9,286.3,21.5,227,21.5,154L21.5,154z M21.5,154"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <form class="input-search" method="GET">
+                    <input type="text" name="q" class="input-search__field" autocomplete="off" placeholder="Поиск по сайту">
+                    <ul class="autocomplete">
+                    </ul>
+                    <button type="submit"></button>
+                </form>
+            </div>
+
+            <div class="alphaWrapper">
+                <div class="btn btn-alfa btn-alfa-mobile" action="OPEN_POPUP" data-target="regAuth">
+                    <span class="btn-alfa__avatar">
+                        <img src="/media/images/avatar.svg" alt="" />
+                    </span>
+                    <!-- Скрвыть .btn__icon если цифра 0 -->
+                    <!-- <div class="btn__icon">3</div>-->
+                </div>
+                <div class="btn btn-alfa alpha-mobile alpha-mobile-logged" action="TOGGLE_MENU_ALPHA">
+                    <span class="btn-alfa__avatar">
+                        <img src="/media/images/avatar.svg" alt="" />
+                    </span>
+                    <!-- Скрвыть .btn__icon если цифра 0 -->
+                    <!-- <div class="btn__icon">3</div>-->
+                </div> 
+            </div>
+        </div>
+
+        
+    <!--
+    <div class="alpha__menu-mobile">
+        <div class="header__menu_wrapper">
+            <div class="header__menu_bottom">
+                
+                <div class="header__search">
+                    <div class="btn btn-search" action="OPEN_HEADER_SEARCH">
+                        <div class="btn__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Слой_1" x="0px" y="0px" viewBox="0 0 363.9 361.8" style="enable-background:new 0 0 363.9 361.8;" xml:space="preserve">
+                                <path class="st0" d="M357.6,342.6l-87.7-87.7c23.5-27,37.8-62.3,37.8-100.9c0-84.9-69-153.8-153.8-153.8C69,0.2,0,69.2,0,154    s69,153.8,153.8,153.8c38.6,0,73.8-14.2,100.9-37.8l87.7,87.7c2.1,2.1,4.9,3.2,7.6,3.2c2.7,0,5.5-1,7.6-3.2    C361.8,353.6,361.8,346.7,357.6,342.6L357.6,342.6z M21.5,154c0-73,59.4-132.2,132.2-132.2c73,0,132.2,59.4,132.2,132.2    s-59.3,132.3-132.2,132.3C80.9,286.3,21.5,227,21.5,154L21.5,154z M21.5,154"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <form class="input-search" method="GET">
+                        <input type="text" name="q" autocomplete="off" class="input-search__field" placeholder="Поиск по сайту">
+                        <ul class="autocomplete"></ul>
+                        <button type="submit"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+
+
+    <div class="header__menu-mobile">
+        <div class="header__menu_wrapper">
+            <ul class="header__nav">
+                <li class="header__nav_item"><a href="/catalog?product=%D0%90%D1%80%D0%B3%D0%B5%D0%BB%D0%BB%D0%B8%D1%82&type=16">Каталог</a></li>
+                <li class="header__nav_item"><a href="/news">Новости</a></li>
+                <li class="header__nav_item"><a href="/contacts">Команда</a></li>
+            </ul>
+            <div class="header__menu_bottom">
+                <a href="tel:88000000000" class="link-phone">8 (800) 000-00-00</a>
+                    <div class="header__search">
+                        <div class="btn btn-search"  action="OPEN_HEADER_SEARCH">
+                            <div class="btn__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Слой_1" x="0px" y="0px" viewBox="0 0 363.9 361.8" style="enable-background:new 0 0 363.9 361.8;" xml:space="preserve">
+                                    <path class="st0" d="M357.6,342.6l-87.7-87.7c23.5-27,37.8-62.3,37.8-100.9c0-84.9-69-153.8-153.8-153.8C69,0.2,0,69.2,0,154    s69,153.8,153.8,153.8c38.6,0,73.8-14.2,100.9-37.8l87.7,87.7c2.1,2.1,4.9,3.2,7.6,3.2c2.7,0,5.5-1,7.6-3.2    C361.8,353.6,361.8,346.7,357.6,342.6L357.6,342.6z M21.5,154c0-73,59.4-132.2,132.2-132.2c73,0,132.2,59.4,132.2,132.2    s-59.3,132.3-132.2,132.3C80.9,286.3,21.5,227,21.5,154L21.5,154z M21.5,154"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <form class="input-search" method="GET">
+                            <input type="text" name="q" autocomplete="off" class="input-search__field" placeholder="Поиск по сайту">
+                            <ul class="autocomplete">
+                            </ul>
+                            <button type="submit"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</header>
+
+<!-- header END -->
