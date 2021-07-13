@@ -9,6 +9,7 @@ def index(request):
 def catalog(request):
 
 	category = [191, 192, 193]
+	DB_product_category = Household_filters
 	#print(category)
 	if request.method == "GET":
 		if 'category' in request.GET:
@@ -87,7 +88,7 @@ def catalog(request):
 				category = [187,189,186,188,185,190]
 			#Осмосы и Ультрафильтрация
 			elif category == "240":
-				category = [217,269,208,213,123,124,266,125,127,129,120,260,268,259,272,239,235]
+				category = [217,269,208,213,123,124,266,125,127,129,120,115,260,268,259,272,239,235]
 			elif category == "78":
 				category = [217,269,208,213,123,124,266,125,127,129,120,260,268,259,272,239]
 			elif category == "121":
@@ -109,6 +110,9 @@ def catalog(request):
 				category = [91,90]
 			elif category == "88":
 				category = [244,246]
+			#Фильтрующие материалы
+			elif category == "4":
+				category = [42,41]
 			#Фильтры грубой очистки
 			elif category == "74":
 				category = [102,214,247,257,270,242,103,215,65,80]
@@ -122,13 +126,23 @@ def catalog(request):
 				category = [int(category)]
 
 			#Select category DB name by id of category
-			DB_product_category = Household_filters
+
 			if int(request.GET['category']) in [6,135,141,191,192,142,193,140,196,194,197,198,195,143,199,271,132,223,220,221,222,218,219,226,224,225,133,25,26,27,28]:
 				DB_product_category = Household_filters
 			elif int(request.GET['category']) in [5,62,13,12,66,77,227,63,18,19,22,20,21,79,75,106,105,107,81,70,83,85]:
 				DB_product_category = Optional_equipment
 			elif int(request.GET['category']) in [3,71,40,52,56,55,50,23,267,53,57,58,54,59,60,76,108,212,110,112,38,39,46,44,43,49,45]:
 				DB_product_category = Components
+			elif int(request.GET['category']) in [7,155,228,263,262,156,233,232,231,152,160,162,157,161,163,168,166,170,164,172,211,173,175,176,159,248,251,250,249,153,181,182,179,183,178,180,154,187,189,186,188,185,190]:
+				DB_product_category = Kits
+			elif int(request.GET['category']) in [240,78,217,121,207,269,208,213,123,124,206,266,125,127,129,120,115,238,260,268,259,272,239,64,235]:
+				DB_product_category = Osmosis_and_Ultrafiltration
+			elif int(request.GET['category']) in [72,89,91,90,86,88,244,246]:
+				DB_product_category = Ultraviolet_sterilizers
+			elif int(request.GET['category']) in [4,42,41]:
+				DB_product_category = Filter_materials
+			elif int(request.GET['category']) in [74,241,102,214,247,257,4,270,242,103,215,67,65,80]:
+				DB_product_category = Coarse_filters
 	'''
 	Product = Household_filters.objects.filter(Category=category)
 	'''

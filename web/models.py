@@ -33,6 +33,7 @@ class CategoryFilter(models.Model):
 		("Услуга округления", "Услуга округления")
 	]
 	Vendor_list = [
+		(" ","Неизвестно"),
 		("Aqua", "Aqua"),
 		("Aquapro", "Aquapro"),
 		("Autotrol", "Autotrol"),
@@ -645,7 +646,7 @@ class Components(models.Model):
 	]
 
 	Name = models.CharField(max_length=120, verbose_name='Название')
-	Image = models.ImageField(upload_to='optionalequipment/', blank=False, verbose_name='Изображение')
+	Image = models.ImageField(upload_to='components/', blank=False, verbose_name='Изображение')
 	Category = models.CharField(max_length=50, choices=Category_list, verbose_name='Категория')
 	Vendor = models.CharField(max_length=50, choices=CategoryFilter.Vendor_list, verbose_name='Производитель')
 	Nomenclature = models.CharField(max_length=50, choices=CategoryFilter.Nomenclature_list, blank=True, verbose_name='Вид номенклатуры')
@@ -665,3 +666,172 @@ class Components(models.Model):
 	Price =  models.IntegerField(blank=False, verbose_name='Цена')	
 	def __str__(self):
 		return str(self.Name)
+
+class Kits(models.Model):
+	Category_list = [
+		("263", "Оголовок Runxin"),
+		("262", "Стандартный оголовок"),
+		("233", "Aqua"),
+		("232", "Mytho"),
+		("231", "Seko"),
+		("160", "Clack 3 кн. (Установки ионообменные)"),
+		("162", "Clack 5 кн. (Установки ионообменные)"),
+		("157", "Euraqua EQ (RUS) (Установки ионообменные)"),
+		("161", "Runxin (Установки ионообменные)"),
+		("168", "Clack (Дуплекс, Твин, Триплекс)"),
+		("166", "Euraqua EQ (RUS) (Дуплекс, Твин, Триплекс)"),
+		("170", "Runxin (Дуплекс, Твин, Триплекс)"),
+		("172", "Clack (Кабинеты)"),
+		("211", "NatureWater (Кабинеты)"),
+		("173", "Runxin (Кабинеты)"),
+		("175", "Комплектующие (Кабинеты)"),
+		("176", "Ручник (Кабинеты)"),
+		("159", "Ручные клапаны"),
+		("251", "Clack (Установки фильтрации OXIDIZER)"),
+		("250", "Runxin (Установки фильтрации OXIDIZER)"),
+		("249", "Ручные клапаны (Установки фильтрации OXIDIZER)"),
+		("181", "Clack 3 кн. (Установки фильтрации без реагентные)"),
+		("182", "Clack 5 кн. (Установки фильтрации без реагентные)"),
+		("179", "Euraqua EQ (RUS) (Установки фильтрации без реагентные)"),
+		("183", "Runxin (Установки фильтрации без реагентные)"),
+		("178", "TWIN, TRIPLEX (Установки фильтрации без реагентные)"),
+		("180", "Ручные клапаны (Установки фильтрации без реагентные)"),
+		("187", "Clack 3 кн. (Установки фильтрации реагентные)"),
+		("189", "Clack 5 кн. (Установки фильтрации реагентные)"),
+		("186", "Euraqua EQ (RUS) (Установки фильтрации реагентные)"),
+		("188", "Runxin (Установки фильтрации реагентные)"),
+		("185", "TWIN, TRIPLEX (Установки фильтрации реагентные)"),
+		("190", "Ручные клапаны (Установки фильтрации реагентные)")
+	]
+	Name = models.CharField(max_length=120, verbose_name='Название')
+	Image = models.ImageField(upload_to='kits/', blank=False, verbose_name='Изображение')
+	Category = models.CharField(max_length=50, choices=Category_list, verbose_name='Категория')
+	Vendor = models.CharField(max_length=50, choices=CategoryFilter.Vendor_list, verbose_name='Производитель')
+	Nomenclature = models.CharField(max_length=50, choices=CategoryFilter.Nomenclature_list, blank=True, verbose_name='Вид номенклатуры')
+
+	PrType = models.CharField(max_length=100, choices=CategoryFilter.PrType_list, blank=True, verbose_name='Тип')
+	Balloon_size = models.CharField(max_length=50, choices=CategoryFilter.Balloon_size_list, blank=True, verbose_name='Размер баллона')
+	Compressor = models.CharField(max_length=50, choices=CategoryFilter.Compressor_list, blank=True, verbose_name='Компрессор')
+	Dispenser = models.CharField(max_length=50, choices=CategoryFilter.Dispenser_list, blank=True, verbose_name='Дозатор')
+	Tank_volume = models.CharField(max_length=50, choices=CategoryFilter.Tank_volume_list, blank=True, verbose_name='Объем емкости')
+	Valve_brand_and_type = models.CharField(max_length=50, choices=CategoryFilter.Valve_brand_and_type_list, blank=True, verbose_name='Марка и тип клапана')
+	Presence_of_a_water_meter = models.CharField(max_length=50, choices=CategoryFilter.Presence_of_a_water_meter_list, blank=True, verbose_name='Наличие водосчетчика')
+	Performance = models.CharField(max_length=50, choices=CategoryFilter.Performance_list, blank=True, verbose_name='Производительность')
+
+	About = models.TextField(blank=True)
+	Status = models.CharField(max_length=50, choices=CategoryFilter.Status_list, blank=False, verbose_name='Наличие товара')
+	Price =  models.IntegerField(blank=False, verbose_name='Цена')	
+	def __str__(self):
+		return str(self.Name)
+
+
+class Osmosis_and_Ultrafiltration(models.Model):
+	Category_list = [
+		("217", "Коммерческие осмосы NatureWater"),
+		("269", "NOYI"),
+		("208", "Semtec"),
+		("213", "Wave cyber"),
+		("123", "Корпуса ROPV"),
+		("124", "Корпуса из нерж"),
+		("266", "Aquapro"),
+		("125", "CSM"),
+		("127", "Filmtec"),
+		("129", "Vontron"),
+		("120", "Промышленные и Ком. осмосы Aquapro"),
+		("115", "Промышленные и Ком. осмосы AWT"),
+		("260", "Серия RO"),
+		("268", "Серия ROB"),
+		("259", "Серия ROL"),
+		("272", "Серия ROS"),
+		("239", "Промышленные осмосы"),
+		("235", "Модули")
+	]
+	Name = models.CharField(max_length=120, verbose_name='Название')
+	Image = models.ImageField(upload_to='osmosisandultrafiltration/', blank=False, verbose_name='Изображение')
+	Category = models.CharField(max_length=50, choices=Category_list, verbose_name='Категория')
+	Vendor = models.CharField(max_length=50, choices=CategoryFilter.Vendor_list, verbose_name='Производитель')
+	Nomenclature = models.CharField(max_length=50, choices=CategoryFilter.Nomenclature_list, blank=True, verbose_name='Вид номенклатуры')
+
+	PrType = models.CharField(max_length=100, choices=CategoryFilter.PrType_list, blank=True, verbose_name='Тип')
+	Size = models.CharField(max_length=50, choices=CategoryFilter.Size_list, blank=True, verbose_name='Размер')
+	Application = models.CharField(max_length=50, choices=CategoryFilter.Application_list, blank=True, verbose_name='Применение')
+	Performance = models.CharField(max_length=50, choices=CategoryFilter.Performance_list, blank=True, verbose_name='Производительность')
+
+	About = models.TextField(blank=True)
+	Status = models.CharField(max_length=50, choices=CategoryFilter.Status_list, blank=False, verbose_name='Наличие товара')
+	Price =  models.IntegerField(blank=False, verbose_name='Цена')	
+	def __str__(self):
+		return str(self.Name)
+
+class Ultraviolet_sterilizers(models.Model):
+	Category_list = [
+		("91", "УФ-лампы, сменные элементы"),
+		("90", "УФ-стерилизаторы Aquapro"),
+		("86", "УФ-стерилизаторы DUV"),
+		("244", "УФ-лампы, сменные элементы"),
+		("246", "УФ-стерилизаторы STERILIZER")
+	]
+	Name = models.CharField(max_length=120, verbose_name='Название')
+	Image = models.ImageField(upload_to='ultravioletsterilizers/', blank=False, verbose_name='Изображение')
+	Category = models.CharField(max_length=50, choices=Category_list, verbose_name='Категория')
+	Vendor = models.CharField(max_length=50, choices=CategoryFilter.Vendor_list, verbose_name='Производитель')
+	Nomenclature = models.CharField(max_length=50, choices=CategoryFilter.Nomenclature_list, blank=True, verbose_name='Вид номенклатуры')
+
+	PrType = models.CharField(max_length=100, choices=CategoryFilter.PrType_list, blank=True, verbose_name='Тип')
+	Performance = models.CharField(max_length=50, choices=CategoryFilter.Performance_list, blank=True, verbose_name='Производительность')
+	Connection = models.CharField(max_length=50, choices=CategoryFilter.Connection_list, blank=True, verbose_name='Подключение')
+
+	About = models.TextField(blank=True)
+	Status = models.CharField(max_length=50, choices=CategoryFilter.Status_list, blank=False, verbose_name='Наличие товара')
+	Price =  models.IntegerField(blank=False, verbose_name='Цена')	
+	def __str__(self):
+		return str(self.Name)
+
+class Filter_materials(models.Model):
+	Category_list = [
+		("42", "Ионообменные"),
+		("41", "Осветление и обезжелезивание")
+	]
+	Name = models.CharField(max_length=120, verbose_name='Название')
+	Image = models.ImageField(upload_to='filtermaterials/', blank=False, verbose_name='Изображение')
+	Category = models.CharField(max_length=50, choices=Category_list, verbose_name='Категория')
+	Vendor = models.CharField(max_length=50, choices=CategoryFilter.Vendor_list, verbose_name='Производитель')
+	Nomenclature = models.CharField(max_length=50, choices=CategoryFilter.Nomenclature_list, blank=True, verbose_name='Вид номенклатуры')
+
+	PrType = models.CharField(max_length=100, choices=CategoryFilter.PrType_list, blank=True, verbose_name='Тип')	
+
+	About = models.TextField(blank=True)
+	Status = models.CharField(max_length=50, choices=CategoryFilter.Status_list, blank=False, verbose_name='Наличие товара')
+	Price =  models.IntegerField(blank=False, verbose_name='Цена')	
+	def __str__(self):
+		return str(self.Name)
+
+class Coarse_filters(models.Model):
+	Category_list = [
+		("102", "CEPEX"),
+		("214", "NOVHIDRO/ROFISA"),
+		("247", "Runxin"),
+		("257", "YD"),
+		("270", "Aquapro"),
+		("242", "BFH"),
+		("103", "Cintropur"),
+		("215", "NatureWater"),
+		("65", "Мультипатронные фильтры AK CF"),
+		("80", "Мультипатронные фильтры Aquapro")
+	]
+	Name = models.CharField(max_length=120, verbose_name='Название')
+	Image = models.ImageField(upload_to='coarsefilters/', blank=False, verbose_name='Изображение')
+	Category = models.CharField(max_length=50, choices=Category_list, verbose_name='Категория')
+	Vendor = models.CharField(max_length=50, choices=CategoryFilter.Vendor_list, verbose_name='Производитель')
+	Nomenclature = models.CharField(max_length=50, choices=CategoryFilter.Nomenclature_list, blank=True, verbose_name='Вид номенклатуры')
+
+	PrType = models.CharField(max_length=100, choices=CategoryFilter.PrType_list, blank=True, verbose_name='Тип')	
+	Performance = models.CharField(max_length=50, choices=CategoryFilter.Performance_list, blank=True, verbose_name='Производительность')
+	Execution = models.CharField(max_length=50, choices=CategoryFilter.Execution_list, blank=True, verbose_name='Исполнение')
+	Accession = models.CharField(max_length=50, choices=CategoryFilter.Accession_list, blank=True, verbose_name='Присоединение')
+
+	About = models.TextField(blank=True)
+	Status = models.CharField(max_length=50, choices=CategoryFilter.Status_list, blank=False, verbose_name='Наличие товара')
+	Price =  models.IntegerField(blank=False, verbose_name='Цена')	
+	def __str__(self):
+		return str(self.Name)	
