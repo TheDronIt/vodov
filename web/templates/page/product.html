@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" data-noTransition="true" >
 <head>
@@ -7,48 +6,64 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     
     <meta name="csrf-param" content="_csrf-frontend">
-    <meta name="csrf-token" content="_qtifBQbaU5Kjtz3-FFDKxNvXvvBxUeky2jC0DEdZu-bxDote0E6fhyjkLSUMG5gZAcwmrKyFZC8HYSqA1xShg==">
-        {% load static %}
-        <title>Каталог</title>
-    <meta name="Description" content="Надежные решения для промышленной фильтрации воды."> 
+    <meta name="csrf-token" content="kMXTCTUBKw4vTQmyFlTOTMtFDXD5f2HbA3tTSLpa0PX2_KRBDFZgR0F9VtV3M7kZ-HFLIZceI4RJAgAS7S3lvw==">
+    {% load static %}    
+    <title>{{Product.Name}}</title>
+    <meta name="Description" content="{{Product.About}}"> 
     <meta name="Keywords" content="Meta Keywords"> 
-    <meta property="og:title" content="Каталог" /> 
-    <meta property="og:description" content="Надежные решения для промышленной фильтрации воды." /> 
-    <meta property="og:image" content="https://atekwater.ru/uploads/option/logopopub.jpg" />     <link href="/media/css/plugin/swiper.min.css" rel="stylesheet">
+    <meta property="og:title" content="{{product.Name}}" /> 
+    <meta property="og:description" content="{{Product.About}}" /> 
+    <meta property="og:image" content="https://atekwater.ru/uploads/catalog/files/a31174b148934ceb056dac23949fc21d.jpg" />
+<link href="{% static 'web/css/plugin/swiper.min.css' %}" rel="stylesheet">
 <link href="{% static 'web/css/plugin/jquery.formstyler.css' %}" rel="stylesheet">
 <link href="{% static 'web/css/plugin/jquery.jscrollpane.css' %}" rel="stylesheet">
 <link href="{% static 'web/css/plugin/main.css' %}" rel="stylesheet">
 <link href="{% static 'web/css/plugin/datepicker.css' %}" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/media/images/favicon.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/media/images/favicon.png" sizes="32x32">
     <!-- <link href="https://yandex.st/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
-    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=x3Ts6t61z0JautYfyhVvxu2pTr9dFJUHbpms4d2JnpFIC0UN2EpihQsnZJ4Tb3UOMvI4j1sXmIsjaGW6070oWQ" charset="UTF-8"></script><script>
-        var is_auth = '0';
-        var chat_close = '0';
-        var chat_time_update = '20';
-        var site = 'prod';
-    </script>
 </head>
 {% block content %}
+
 <body class="">
-    {% include 'include/header.html' %}
+	{% include 'include/header.html' %}
     <div class="wrapper">
+        
+<!--     
+<ul class="breadCrumb">
+    <li class="breadCrumb__item"><a href="/">Главная</a></li>
+    <li class="breadCrumb__item"><a href="/catalog?product=%D0%90%D1%80%D0%B3%D0%B5%D0%BB%D0%BB%D0%B8%D1%82&type=16">Каталог</a></li>
+    <li class="breadCrumb__item"><a href="/catalog?category=6">Бытовые фильтры</a></li>                
+    <li class="breadCrumb__item"><a href="/catalog?category=135">Aquapro</a></li>
+    <li class="breadCrumb__item"><a href="/catalog?category=141">Колбы</a></li>
+    <li class="breadCrumb__item"><a href="/catalog?category=191">Колбы BB</a></li>
+        <li class="breadCrumb__item"><span>{{Product.Name}}</span></li>
+</ul>
+-->
+<ul class="breadCrumb">
+    <li class="breadCrumb__item"><a href="/">Главная</a></li>
+    <li class="breadCrumb__item"><a href="/catalog">Каталог</a></li>
+    <li class="breadCrumb__item"><span>{{Product.Name}}</span></li>
+</ul>
+            
 
-        <ul class="breadCrumb">
-            <li class="breadCrumb__item"><a href="/">Главная</a></li>
-            <li class="breadCrumb__item"><a href="/catalog?product=%D0%90%D1%80%D0%B3%D0%B5%D0%BB%D0%BB%D0%B8%D1%82&type=16">Каталог</a></li>
-        </ul>
+<!-- header END -->
 
 
-
-<div class="content content-catalogPage">
+<div class="content content-catalogProductPage">
     <div class="pageTitle">Каталог товаров</div>
+
     <div class="catalog-wrapper">
-        <div class="catalogMenu">
-            <div class="btn btn-toggleSlideFilter" action="TOGGLE_SLIDE_FILTER">Каталог</div>
-            <ul class="catalogMenu__list" toggleSlideElem>
 
+        
+<!-- На активный передавать класс catalogMenu__list_item-current -->
+<!-- На "открытый" селект добавить data-status="open" -->
+<!-- На элемент у которого нет нет вложенностей добавить data-status="last" -->
 
-                <li class="catalogMenu__list_item" data-status="close" >
+    <div class="catalogMenu">
+        <div class="btn btn-toggleSlideFilter" action="TOGGLE_SLIDE_FILTER">Каталог</div>
+        <ul class="catalogMenu__list" toggleSlideElem>
+
+        <li class="catalogMenu__list_item" data-status="close" >
                     <div class="catalogMenu__list_trigger">
                         <span class="catalogMenu__list_trigger-icon" action="TOGGLE_FILTER_LIST"></span>
                         <a href="/catalog?category=6">Бытовые фильтры</a>
@@ -1214,178 +1229,537 @@
                     </ul>
                 </li>
 
-
-            </ul>
-        </div>
+    </div>
 
 
+    <div class="catalog-container" id="catalog_one" data-id="2602">
+            
+<!--                  
+<form id="filter" action="/catalog" method="GET" toggleSlideElem="">
+    <div class="catalogFilter" toggleSlideElem>
 
-    
-        <div class="catalog-container" data-all-count="3299">
-            <!--
-            <div class="btn btn-toggleSlideFilter" action="TOGGLE_SLIDE_FILTER">Фильтрация</div>  
-                
-                <form id="filter" action="/catalog" method="GET" toggleSlideElem="">
-                    <div class="catalogFilter" toggleSlideElem>
-                        <div class="catalogFilter__params">
-                            <div class="catalogFilter__params_required">
-                                <div>
-                                    <div class="paramsTitle">Поиск</div>
-                                    <input class="customInput" name="search" type="text" id="filter_search" placeholder="Ключевое слово" value="" />
-                                </div>
-                            </div>
-                            <div class="catalogFilter__params_required">
-                                <div>
-                                    <div class="paramsTitle">Производитель</div>
-                                    <div class="customSelect">
-                                        <select name="product" data-placeholder="Выбрать" id="filter_products" onchange="return getTypesByChangeProduct(this.value)">
-                                            <option class="default" value=''></option>
-                                            <option value="Aqua" >Aqua</option>
-                                            <option value="Aquapro" >Aquapro</option>
-                                            <option value="Autotrol" >Autotrol</option>
-                                            <option value="AWT" >AWT</option>
-                                            <option value="Canature" >Canature</option>
-                                            <option value="Cepex" >Cepex</option>
-                                            <option value="Cintropur" >Cintropur</option>
-                                            <option value="Clack" >Clack</option>
-                                            <option value="CNP" >CNP</option>
-                                            <option value="CSM" >CSM</option>
-                                            <option value="Ecosoft" >Ecosoft</option>
-                                            <option value="ELITECH" >ELITECH</option>
-                                            <option value="Euraqua" >Euraqua</option>
-                                            <option value="Filmtec" >Filmtec</option>
-                                            <option value="Fleck" >Fleck</option>
-                                            <option value="Grundfos" >Grundfos</option>
-                                            <option value="Mytho" >Mytho</option>
-                                            <option value="NanoRo" >NanoRo</option>
-                                            <option value="NatureWater" >NatureWater</option>
-                                            <option value="NOCCHI" >NOCCHI</option>
-                                            <option value="Noname" >Noname</option>
-                                            <option value="Noyi" >Noyi</option>
-                                            <option value="Pentair" >Pentair</option>
-                                            <option value="Philips" >Philips</option>
-                                            <option value="Pimtas" >Pimtas</option>
-                                            <option value="Runxin" >Runxin</option>
-                                            <option value="Seko" >Seko</option>
-                                            <option value="STRUCTURAL" >STRUCTURAL</option>
-                                            <option value="Vontron" >Vontron</option>
-                                            <option value="Wave Cyber	" >Wave Cyber	</option>
-                                            <option value="Zenner" >Zenner</option>
-                                            <option value="Аргеллит" >Аргеллит</option>
-                                            <option value="ЕВРОПА" >ЕВРОПА</option>
-                                            <option value="ИНДИЯ" >ИНДИЯ</option>
-                                            <option value="КИТАЙ" >КИТАЙ</option>
-                                            <option value="КОРЕЯ" >КОРЕЯ</option>
-                                            <option value="РОССИЯ" >РОССИЯ</option>
-                                            <option value="США" >США</option>
-                                            <option value="Тайвань" >Тайвань</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="paramsTitle">Вид номенклатуры</div>
-                                    <div class="customSelect">
-                                        <select name="type" data-placeholder="Выбрать" id="filter_types" onchange="return getTypeAdditional(this.value)">
-                                            <option class="default" value=''></option>
-                                            <option value="2" >Мембраны и корпуса</option>
-                                            <option value="4" >Набор-комплект(б/х)</option>
-                                            <option value="7" >Аксессуары и запчасти для клапанов управления</option>
-                                            <option value="8" >Аксессуары и запчасти к колбам, быт. системам</option>
-                                            <option value="9" >Баки для воды</option>
-                                            <option value="10" >Баки реагентные и запчасти</option>
-                                            <option value="11" >Бытовые системы</option>
-                                            <option value="12" >Водосчетчики</option>
-                                            <option value="14" >Дозирующие насосы и аксессуары</option>
-                                            <option value="15" >ДРС</option>
-                                            <option value="16" >Загрузки, реагенты, химия</option>
-                                            <option value="17" >Картриджи</option>
-                                            <option value="18" >Клапана управления</option>
-                                            <option value="19" >Колбы</option>
-                                            <option value="20" >Корпуса</option>
-                                            <option value="21" >Напорная аэрация</option>
-                                            <option value="22" >Насосы</option>
-                                            <option value="23" >ПВХ</option>
-                                            <option value="24" >Промышленные осмоса и Ультрафильтация</option>
-                                            <option value="25" >Прочее</option>
-                                            <option value="26" >Ротаметры</option>
-                                            <option value="27" >Станции дозирования</option>
-                                            <option value="29" >Установки ионообменные</option>
-                                            <option value="30" >Установки фильтрации безреагентные</option>
-                                            <option value="31" >Установки фильтрации реагентные</option>
-                                            <option value="32" >УФ Стерелизаторы и аксессуары</option>
-                                            <option value="33" >Фильтры грубой очистки</option>
-                                            <option value="34" >Электромагнитные клапана</option>
-                                            <option value="36" >Услуга округления</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div id="div_filter_storage" style="display: none">
-                                    <div class="paramsTitle">Склады</div>
-                                    <div style="padding:6px 0 0 10px;">
-                                        <input type="checkbox" name='storage[2]' style="-webkit-appearance: auto;"  ><label for='storage[2]' style="font-size:10pt; margin:0 16px 0 5px;">МСК
-                                        </label>
-                                        <input type="checkbox" name='storage[1]' style="-webkit-appearance: auto;"  ><label for='storage[1]' style="font-size:10pt; margin:0 16px 0 5px;">НСК</label>
-                                        <input type="checkbox" name='storage[3]' style="-webkit-appearance: auto;"  ><label for='storage[3]' style="font-size:10pt; margin:0 16px 0 5px;">ТСК</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="catalogFilter__params_optional" id="type_additional">
-                            </div>
-                            <div class="catalogFilter__params_required">
-                                <a class="filterBtn" href="javascript:void(0)" onclick="return filterSubmit()">Показать подходящие</a>&nbsp;
-                                <a class="filterBtn" href="/catalog">Сбросить</a>
-                            </div>
-                        </div>
-                    </div>
-                </form>  
-
-                -->
-
-                <div class="catalog">
-
-                    {% for Product in Product %}
-                    
-
-                    <!--element-->
-                    <a href="product/{{category_id}}/{{Product.id}}" class="catalog__item" data-favorite="false" data-product="233">
-                        <div class="catalog__item_top">
-                            <div class="catalog__item_image">
-                                <img src="{{Product.Image.url}}" alt="" />
-                            </div>
-                            <p class="price">{{Product.Price}} ₽</p> 
-                            <div class="catalog__item_text">{{Product.Name}}</div>
-                        </div>
-    
-                        <div class="catalog__item_bottom">
-                            <div class="catalog__item_bottom_ui">
-                                <div class="catalog__item_mark">{{Product.Vendor}}</div>
-                                <div class="catalog__item_btn"></div>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- element END -->
-
-
-                    {% endfor %}
-
-
-
-
+        <div class="catalogFilter__params">
+            <div class="catalogFilter__params_required">
+                <div>
+                    <div class="paramsTitle">Поиск</div>
+                    <input class="customInput" name="search" type="text" id="filter_search" placeholder="Ключевое слово" value="" />
                 </div>
+                            </div>
+            <div class="catalogFilter__params_required">
+                <div>
+                    <div class="paramsTitle">Производитель</div>
+                    <div class="customSelect">
+                        <select name="product" data-placeholder="Выбрать" id="filter_products" onchange="return getTypesByChangeProduct(this.value)">
+                            <option class="default" value=''></option>
+                                                            <option value="Aqua" >Aqua</option>
+                                                            <option value="Aquapro" selected='selected'>Aquapro</option>
+                                                            <option value="Autotrol" >Autotrol</option>
+                                                            <option value="AWT" >AWT</option>
+                                                            <option value="Canature" >Canature</option>
+                                                            <option value="Cepex" >Cepex</option>
+                                                            <option value="Cintropur" >Cintropur</option>
+                                                            <option value="Clack" >Clack</option>
+                                                            <option value="CNP" >CNP</option>
+                                                            <option value="CSM" >CSM</option>
+                                                            <option value="Ecosoft" >Ecosoft</option>
+                                                            <option value="ELITECH" >ELITECH</option>
+                                                            <option value="Euraqua" >Euraqua</option>
+                                                            <option value="Filmtec" >Filmtec</option>
+                                                            <option value="Fleck" >Fleck</option>
+                                                            <option value="Grundfos" >Grundfos</option>
+                                                            <option value="Mytho" >Mytho</option>
+                                                            <option value="NanoRo" >NanoRo</option>
+                                                            <option value="NatureWater" >NatureWater</option>
+                                                            <option value="NOCCHI" >NOCCHI</option>
+                                                            <option value="Noname" >Noname</option>
+                                                            <option value="Noyi" >Noyi</option>
+                                                            <option value="Pentair" >Pentair</option>
+                                                            <option value="Philips" >Philips</option>
+                                                            <option value="Pimtas" >Pimtas</option>
+                                                            <option value="Runxin" >Runxin</option>
+                                                            <option value="Seko" >Seko</option>
+                                                            <option value="STRUCTURAL" >STRUCTURAL</option>
+                                                            <option value="Vontron" >Vontron</option>
+                                                            <option value="Wave Cyber	" >Wave Cyber	</option>
+                                                            <option value="Zenner" >Zenner</option>
+                                                            <option value="Аргеллит" >Аргеллит</option>
+                                                            <option value="ЕВРОПА" >ЕВРОПА</option>
+                                                            <option value="ИНДИЯ" >ИНДИЯ</option>
+                                                            <option value="КИТАЙ" >КИТАЙ</option>
+                                                            <option value="КОРЕЯ" >КОРЕЯ</option>
+                                                            <option value="РОССИЯ" >РОССИЯ</option>
+                                                            <option value="США" >США</option>
+                                                            <option value="Тайвань" >Тайвань</option>
+                                                    </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="paramsTitle">Вид номенклатуры</div>
+                    <div class="customSelect">
+                        <select name="type" data-placeholder="Выбрать" id="filter_types" onchange="return getTypeAdditional(this.value)">
+                            <option class="default" value=''></option>
+                                                            <option value="2" >Мембраны и корпуса</option>
+                                                            <option value="4" >Набор-комплект(б/х)</option>
+                                                            <option value="7" >Аксессуары и запчасти для клапанов управления</option>
+                                                            <option value="8" >Аксессуары и запчасти к колбам, быт. системам</option>
+                                                            <option value="9" >Баки для воды</option>
+                                                            <option value="10" >Баки реагентные и запчасти</option>
+                                                            <option value="11" >Бытовые системы</option>
+                                                            <option value="12" >Водосчетчики</option>
+                                                            <option value="14" >Дозирующие насосы и аксессуары</option>
+                                                            <option value="15" >ДРС</option>
+                                                            <option value="16" >Загрузки, реагенты, химия</option>
+                                                            <option value="17" >Картриджи</option>
+                                                            <option value="18" >Клапана управления</option>
+                                                            <option value="19" selected='selected'>Колбы</option>
+                                                            <option value="20" >Корпуса</option>
+                                                            <option value="21" >Напорная аэрация</option>
+                                                            <option value="22" >Насосы</option>
+                                                            <option value="23" >ПВХ</option>
+                                                            <option value="24" >Промышленные осмоса и Ультрафильтация</option>
+                                                            <option value="25" >Прочее</option>
+                                                            <option value="26" >Ротаметры</option>
+                                                            <option value="27" >Станции дозирования</option>
+                                                            <option value="29" >Установки ионообменные</option>
+                                                            <option value="30" >Установки фильтрации безреагентные</option>
+                                                            <option value="31" >Установки фильтрации реагентные</option>
+                                                            <option value="32" >УФ Стерелизаторы и аксессуары</option>
+                                                            <option value="33" >Фильтры грубой очистки</option>
+                                                            <option value="34" >Электромагнитные клапана</option>
+                                                            <option value="36" >Услуга округления</option>
+                                                    </select>
+                    </div>
+                </div>
+                <div id="div_filter_storage" style="display: none">
+                    <div class="paramsTitle">Склады</div>
+                    <div style="padding:6px 0 0 10px;">
+                                                <input type="checkbox" name='storage[2]' style="-webkit-appearance: auto;"  ><label for='storage[2]' style="font-size:10pt; margin:0 16px 0 5px;">МСК</label>
+                                                <input type="checkbox" name='storage[1]' style="-webkit-appearance: auto;"  ><label for='storage[1]' style="font-size:10pt; margin:0 16px 0 5px;">НСК</label>
+                                                <input type="checkbox" name='storage[3]' style="-webkit-appearance: auto;"  ><label for='storage[3]' style="font-size:10pt; margin:0 16px 0 5px;">ТСК</label>
+                                            </div>
+                </div>
+            </div>
 
-                <!--
-                <div class="catalogPreloader">
-                    <div class="catalogPreloader__item"></div>
-                    <div class="catalogPreloader__item"></div>
-                    <div class="catalogPreloader__item"></div>
-                </div> 
-                -->
+            <div class="catalogFilter__params_optional" id="type_additional">
+
+            </div>
+
+            <div class="catalogFilter__params_required">
+                <a class="filterBtn" href="javascript:void(0)" onclick="return filterSubmit()">Показать подходящие</a>&nbsp;
+                <a class="filterBtn" href="/catalog">Сбросить</a>
             </div>
         </div>
-    </div>      
+    </div>
+</form>  
 
-    
-    {% include 'include/footer.html' %}
+-->
+            
 
+
+
+<!-- productCart -->
+<div class="productCart">
+	<div class="productCart__title">{{Product.Name}}</div>
+	<div class="productCart__ui">
+	    <div class="productCart__slider">
+	        <div class="btn-prev">
+	            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 44"><path d="M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z" fill="#d9d9d9"/></svg>
+	        </div>
+	        <div class="swiper-container">
+	            <div class="swiper-wrapper">
+	                <div class="swiper-slide">
+	                    <img src="{{Product.Image.url}}" alt="" />
+	                </div>
+	            </div>
+	        </div>
+	        <div class="btn-next">
+	            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 44"><path d="M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z" fill="#d9d9d9"/></svg>
+	        </div>
+	    </div>
+	    <div class="productCart__ui_btn-container">
+	        <div>
+	            <p class="productCart__personalPrice">{{Product.Price}} ₽</p>
+	        </div>                                                                                            
+	        <div class="btn productCart__addToFavorite" data-favorite="false">
+	            <div class="productCart__addToFavorite_icon">
+	                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="511.626px" height="511.627px" viewBox="0 0 511.626 511.627" style="enable-background:new 0 0 511.626 511.627;" xml:space="preserve">
+	                    <path d="M475.366,71.951c-24.175-23.606-57.575-35.404-100.215-35.404c-11.8,0-23.843,2.046-36.117,6.136   c-12.279,4.093-23.702,9.615-34.256,16.562c-10.568,6.945-19.65,13.467-27.269,19.556c-7.61,6.091-14.845,12.564-21.696,19.414   c-6.854-6.85-14.087-13.323-21.698-19.414c-7.616-6.089-16.702-12.607-27.268-19.556c-10.564-6.95-21.985-12.468-34.261-16.562   c-12.275-4.089-24.316-6.136-36.116-6.136c-42.637,0-76.039,11.801-100.211,35.404C12.087,95.552,0,128.288,0,170.162   c0,12.753,2.24,25.889,6.711,39.398c4.471,13.514,9.566,25.031,15.275,34.546c5.708,9.514,12.181,18.796,19.414,27.837   c7.233,9.042,12.519,15.27,15.846,18.699c3.33,3.422,5.948,5.899,7.851,7.419L243.25,469.937c3.427,3.429,7.614,5.144,12.562,5.144   s9.138-1.715,12.563-5.137l177.87-171.307c43.588-43.583,65.38-86.41,65.38-128.475C511.626,128.288,499.537,95.552,475.366,71.951   z"></path>
+	                </svg>
+	            </div> 
+	        </div>
+	        <div class="productCart__storageInfo"></div>
+	    </div>
+	</div>
+	<div class="productCart__info">
+
+	    <div class="productCart__info_nav">
+	        <div class="swiper-container">
+	            <div class="swiper-wrapper">
+
+	                <div class="swiper-slide">
+	                    <div class="productCart__info_navItem" action="SWITCH_PRODUCTCART_INFO" data-type="disctiption">Описание</div>
+	                </div>
+	                <div class="swiper-slide">
+	                    <div class="productCart__info_navItem productCart__info_navItem-active" action="SWITCH_PRODUCTCART_INFO" data-type="specifications">Характеристики</div>
+	                </div>  
+
+	            </div>
+	        </div>
+	    </div>
+
+	    <div class="productCart__info_tab">
+	        <div class="productCart__info_tabItem" data-type="disctiption">
+	            <p>{{Product.About}}</p>
+	        </div>
+	        <div class="productCart__info_tabItem productCart__info_tabItem-active" data-type="specifications">
+
+
+
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Вид номенклатуры</span> 
+	                    <div class="textTip">
+	                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+	                            <circle cx="256" cy="378.5" r="25"/>
+	                            <path d="M256,0C114.516,0,0,114.497,0,256c0,141.484,114.497,256,256,256c141.484,0,256-114.497,256-256
+	                                C512,114.516,397.503,0,256,0z M256,472c-119.377,0-216-96.607-216-216c0-119.377,96.607-216,216-216
+	                                c119.377,0,216,96.607,216,216C472,375.377,375.393,472,256,472z"/>
+	                            <path d="M256,128.5c-44.112,0-80,35.888-80,80c0,11.046,8.954,20,20,20s20-8.954,20-20c0-22.056,17.944-40,40-40
+	                                c22.056,0,40,17.944,40,40c0,22.056-17.944,40-40,40c-11.046,0-20,8.954-20,20v50c0,11.046,8.954,20,20,20
+	                                c11.046,0,20-8.954,20-20v-32.531c34.466-8.903,60-40.26,60-77.469C336,164.388,300.112,128.5,256,128.5z"/>
+	                        </svg>
+	                        <div class="textTip__discription-container">
+	                            <div class="textTip__discription">Вид номенклатуры</div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <span class="specifications__text">{{Product.Nomenclature}}</span>
+	            </div>   
+
+	            {% if Product.PrType %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Тип</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.PrType}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Size %}
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Размер</span> 
+	                </div>
+	                <span class="specifications__text">BB 10</span>
+	            </div>
+	            {% endif %}
+	            
+	            {% if Product.Accession %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Присоединение</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Accession}}</span>
+	            </div>
+	            {% endif %}
+	            
+	            {% if Product.Color %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Цвет</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Color}}</span>
+	            </div>
+	            {% endif %}
+	            
+	            {% if Product.Application %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Применение</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Application}}</span>
+	            </div>
+	            {% endif %}
+	                                
+	             {% if Product.For_systems %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Для систем</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.For_systems}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Pump %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Наличие насоса</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Pump}}</span>
+	            </div>
+	            {% endif %}  
+
+	            {% if Product.Tank_capacity %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Емкость бака</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Tank_capacity}}</span>
+	            </div>
+	            {% endif %}                 
+
+	            {% if Product.Additional_options %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Дополнительные опции</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Additional_options}}</span>
+	            </div>
+	            {% endif %} 
+
+				{% if Product.For_flasks %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Для колб</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.For_flasks}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Performance %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Производительность</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Performance}}</span>
+	            </div>
+	            {% endif %} 	            
+
+	            {% if Product.PerformanceQ %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Производительность Q м3 ч</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.PerformanceQ}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Size %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Размер</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Size}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Microtity %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Микронность</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Microtity}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Fitting %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Фитинги</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Fitting}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Cartridge_size %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Размер картриджа</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Cartridge_size}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Volume %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Объем</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Volume}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Form %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Форма</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Form}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.For_enclosures %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Для корпусов</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.For_enclosures}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.View %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Вид</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.View}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Interface_language %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Язык интерфейса</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Interface_language}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Neck %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Горловина</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Neck}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Compressor %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Компрессор</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Compressor}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Balloon_size %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Размер баллона</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Balloon_size}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Water_pillar %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>H м вод ст</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Water_pillar}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Voltage %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Напряжение</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Voltage}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Size_mm %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Размер мм</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Size_mm}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Compound %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Соединение</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Compound}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Valve_brand_and_type %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Марка и тип клапана</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Valve_brand_and_type}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Presence_of_a_water_meter %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Наличие водосчетчика</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Presence_of_a_water_meter}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Dispenser %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Дозатор</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Dispenser}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Tank_volume %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Объем емкости</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Tank_volume}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Execution %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Исполнение</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Execution}}</span>
+	            </div>
+	            {% endif %}
+
+	            {% if Product.Connection %}                            
+	            <div class="specifications">
+	                <div class="specifications__title">
+	                    <span>Подключение</span> 
+	                </div>
+	                <span class="specifications__text">{{Product.Connection}}</span>
+	            </div>
+	            {% endif %}
+
+	        </div>
+	    </div>
+	</div>
+</div>
+<!-- productCart EDN -->
+                
+                                
+
+            <div class="swiper-pagination customPagination-catalog"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      
+{% include 'include/footer.html' %}
+
+</body>
 {% endblock %}
 </html>

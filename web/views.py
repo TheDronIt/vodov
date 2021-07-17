@@ -10,6 +10,7 @@ def catalog(request):
 
 	category = [191, 192, 193]
 	DB_product_category = Household_filters
+	category_id = 1
 	#print(category)
 	if request.method == "GET":
 		if 'category' in request.GET:
@@ -129,26 +130,69 @@ def catalog(request):
 
 			if int(request.GET['category']) in [6,135,141,191,192,142,193,140,196,194,197,198,195,143,199,271,132,223,220,221,222,218,219,226,224,225,133,25,26,27,28]:
 				DB_product_category = Household_filters
+				category_id = 1
 			elif int(request.GET['category']) in [5,62,13,12,66,77,227,63,18,19,22,20,21,79,75,106,105,107,81,70,83,85]:
 				DB_product_category = Optional_equipment
+				category_id = 2
 			elif int(request.GET['category']) in [3,71,40,52,56,55,50,23,267,53,57,58,54,59,60,76,108,212,110,112,38,39,46,44,43,49,45]:
 				DB_product_category = Components
+				category_id = 3
 			elif int(request.GET['category']) in [7,155,228,263,262,156,233,232,231,152,160,162,157,161,163,168,166,170,164,172,211,173,175,176,159,248,251,250,249,153,181,182,179,183,178,180,154,187,189,186,188,185,190]:
 				DB_product_category = Kits
+				category_id = 4
 			elif int(request.GET['category']) in [240,78,217,121,207,269,208,213,123,124,206,266,125,127,129,120,115,238,260,268,259,272,239,64,235]:
 				DB_product_category = Osmosis_and_Ultrafiltration
+				category_id = 5
 			elif int(request.GET['category']) in [72,89,91,90,86,88,244,246]:
 				DB_product_category = Ultraviolet_sterilizers
+				category_id = 6
 			elif int(request.GET['category']) in [4,42,41]:
 				DB_product_category = Filter_materials
+				category_id = 7
 			elif int(request.GET['category']) in [74,241,102,214,247,257,4,270,242,103,215,67,65,80]:
 				DB_product_category = Coarse_filters
-	'''
-	Product = Household_filters.objects.filter(Category=category)
-	'''
+				category_id = 8
+
+
+
 	Product = DB_product_category.objects.filter(Category__in = category)
 	data = {
-		'Product': Product
+		'category_id':category_id,
+		'Product': Product,
+		'DB_product_category': DB_product_category,
 	}
 	#print(Product)
 	return render(request, 'page/catalog.html', data)
+
+def product(request,category_id,id):
+	if category_id == 1:
+		DB_product_category = Household_filters
+	elif category_id == 2:
+		DB_product_category = Optional_equipment
+	elif category_id == 3:
+		DB_product_category = Components
+	elif category_id == 4:
+		DB_product_category = Kits
+	elif category_id == 5:
+		DB_product_category = Osmosis_and_Ultrafiltration
+	elif category_id == 6:
+		DB_product_category = Ultraviolet_sterilizers
+	elif category_id == 7:
+		DB_product_category = Filter_materials
+	elif category_id == 8:
+		DB_product_category = Coarse_filters
+	else:
+		return HttpResponseRedirect("/catalog")
+
+	Product = DB_product_category.objects.get(id=id) 
+
+	data = {
+		'Product':Product,
+		'category_id':category_id,
+		'id':id
+	}
+	return render(request, 'page/product.html',data) 
+
+
+def redirect_to_catalog(request, category_id):
+	return HttpResponseRedirect("/catalog")
