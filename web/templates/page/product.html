@@ -1379,7 +1379,18 @@
 	    <div class="productCart__ui_btn-container">
 	        <div>
 	            <p class="productCart__personalPrice">{{Product.Price}} ₽</p>
-	        </div>                                                                                            
+	        </div>                                                                         
+            <div>
+                {% if Product.Status == "В наличии" %}
+                    <form method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="productCart__add-button">{{button}}</button>
+                    </form>
+                {% else %}
+                    <a style="color: gray;">Нет в наличии</a>
+                {% endif %}
+            </div>
+
 	        <div class="btn productCart__addToFavorite" data-favorite="false">
 	            <div class="productCart__addToFavorite_icon">
 	                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="511.626px" height="511.627px" viewBox="0 0 511.626 511.627" style="enable-background:new 0 0 511.626 511.627;" xml:space="preserve">
@@ -1734,12 +1745,12 @@
 	            {% endif %}
 
 	            {% if Product.Connection %}                            
-	            <div class="specifications">
-	                <div class="specifications__title">
-	                    <span>Подключение</span> 
-	                </div>
-	                <span class="specifications__text">{{Product.Connection}}</span>
-	            </div>
+    	            <div class="specifications">
+    	                <div class="specifications__title">
+    	                    <span>Подключение</span> 
+    	                </div>
+    	                <span class="specifications__text">{{Product.Connection}}</span>
+    	            </div>
 	            {% endif %}
 
 	        </div>

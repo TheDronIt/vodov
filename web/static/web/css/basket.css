@@ -19,7 +19,8 @@
 .basket-headline
 {
 	font-weight: bold;
-	font-size: 24px;
+	font-size: 2rem;
+	color: black;
 	margin-bottom: 10px;
 }
 .basket-container
@@ -41,10 +42,17 @@
 .basket-element-logo
 {
 	grid-row: 1/5;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 .basket-element-name
 {
 	grid-row: 1/5;
+}
+.basket-element-name > a:hover
+{
+	color: #07b259;
 }
 .basket-element-value
 {

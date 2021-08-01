@@ -38,32 +38,28 @@
         <div class="basket-container">
             <div class="basket-headline">Каталог</div>
             
+
+            {% for product in basket_product %}
             <div class="basket-element">
-                <div class="basket-element-logo">
-                    logo
+                <div class="basket-element-logo" style="background-image: url({{product.image}})">
                 </div>
                 <div class="basket-element-name">
-                    name
+                    <a href="{{product.link}}">{{product.name}}</a>
                 </div>
                 <div class="basket-element-delete">
                     delete (set in right part)
                 </div>
                 <div class="basket-element-value">
-                    value
+                    - {{product.pr_value}} +
                 </div>
                 <div class="basket-element-price_for_one">
-                    price for one
+                    {{product.price}} ₽
                 </div>  
                 <div class="basket-element-price">
-                    price
+                    {{product.full_product_price}} ₽
                 </div> 
-
             </div>
-
-            <div class="basket-element">
-                123
-            </div>
-
+            {% endfor %}
         </div>
     </div>
     {% include 'include/footer.html' %}

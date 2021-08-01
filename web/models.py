@@ -835,3 +835,13 @@ class Coarse_filters(models.Model):
 	Price =  models.IntegerField(blank=False, verbose_name='Цена')	
 	def __str__(self):
 		return str(self.Name)	
+
+
+class Basket(models.Model):
+	session_key = models.CharField(max_length=120)
+	pr_category_id = models.CharField(max_length=120)
+	pr_id = models.CharField(max_length=120)
+	pr_value = models.IntegerField()
+
+	def __str__(self):
+		return str(self.id)

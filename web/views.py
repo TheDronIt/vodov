@@ -127,7 +127,6 @@ def catalog(request):
 				category = [int(category)]
 
 			#Select category DB name by id of category
-
 			if int(request.GET['category']) in [6,135,141,191,192,142,193,140,196,194,197,198,195,143,199,271,132,223,220,221,222,218,219,226,224,225,133,25,26,27,28]:
 				DB_product_category = Household_filters
 				category_id = 1
@@ -155,7 +154,7 @@ def catalog(request):
 
 
 
-	Product = DB_product_category.objects.filter(Category__in = category)
+	Product = DB_product_category.objects.filter(Category__in = category).order_by("Status")
 	data = {
 		'category_id':category_id,
 		'Product': Product,
@@ -186,10 +185,38 @@ def product(request,category_id,id):
 
 	Product = DB_product_category.objects.get(id=id) 
 
+	session_key = request.session.session_key
+	if not session_key:
+		request.session.cycle_key()
+
+		
+	basket_info = Basket.objects.filter(session_key=session_key).filter(pr_category_id=category_id).filter(pr_id=id)
+
+	button = "Добавить"
+	if basket_info:
+			element_exist = Basket.objects.filter(session_key=session_key).filter(pr_category_id=category_id).get(pr_id=id)
+			if element_exist.pr_value:
+				button = "В корзине"
+
+	if request.method == "POST":
+		if Product.Status == "В наличии":
+			if basket_info:
+				return HttpResponseRedirect("/basket")
+			else:
+				db = Basket(session_key = session_key, pr_category_id = category_id, pr_id = id, pr_value = 1)
+				db.save()
+				return HttpResponseRedirect("/product/"+str(category_id)+"/"+str(id))
+		else:
+			return HttpResponseRedirect("/catalog/category="+Product.Category)
+
+
+
+
 	data = {
 		'Product':Product,
 		'category_id':category_id,
-		'id':id
+		'id':id,
+		'button':button
 	}
 	return render(request, 'page/product.html',data) 
 
@@ -198,4 +225,53 @@ def redirect_to_catalog(request, category_id):
 	return HttpResponseRedirect("/catalog")
 
 def basket(request):
-	return render(request, 'page/basket.html')
+	session_key = request.session.session_key
+	if not session_key:
+		request.session.cycle_key()
+	#basket_info = Basket.objects.filter(session_key=session_key).filter(pr_category_id=category_id).filter(pr_id=id)
+	basket_available = Basket.objects.filter(session_key=session_key)
+
+	basket_product = []
+
+	if basket_available:
+		for product in basket_available:
+
+			if product.pr_category_id == "1":
+				DB_product_category = Household_filters
+			elif product.pr_category_id == "2":
+				DB_product_category = Optional_equipment
+			elif product.pr_category_id == "3":
+				DB_product_category = Components
+			elif product.pr_category_id == "4":
+				DB_product_category = Kits
+			elif product.pr_category_id == "5":
+				DB_product_category = Osmosis_and_Ultrafiltration
+			elif product.pr_category_id == "6":
+				DB_product_category = Ultraviolet_sterilizers
+			elif product.pr_category_id == "7":
+				DB_product_category = Filter_materials
+			elif product.pr_category_id == "8":
+				DB_product_category = Coarse_filters
+
+			about_basket_product = DB_product_category.objects.get(id=product.pr_id)
+			
+			basket_product.append(
+				dict(
+					name=about_basket_product.Name,
+					link="/product/"+product.pr_category_id+"/"+product.pr_id,
+					image=about_basket_product.Image.url,
+					pr_id=product.pr_id,
+					pr_category_id=product.pr_category_id,
+					pr_value=product.pr_value,
+					price=about_basket_product.Price,
+					full_product_price=about_basket_product.Price * product.pr_value,
+				))
+		print(basket_product)
+	else:
+		print("Товара нет")
+
+	data = {
+		'basket_product': basket_product
+	}
+
+	return render(request, 'page/basket.html',data)
