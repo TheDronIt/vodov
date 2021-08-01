@@ -196,3 +196,6 @@ def product(request,category_id,id):
 
 def redirect_to_catalog(request, category_id):
 	return HttpResponseRedirect("/catalog")
+
+def basket(request):
+	return render(request, 'page/basket.html')
