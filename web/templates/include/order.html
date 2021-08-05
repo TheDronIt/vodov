@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" data-noTransition="true" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
+    <meta name="csrf-param" content="_csrf-frontend">
+    <meta name="csrf-token" content="_qtifBQbaU5Kjtz3-FFDKxNvXvvBxUeky2jC0DEdZu-bxDote0E6fhyjkLSUMG5gZAcwmrKyFZC8HYSqA1xShg==">
+        {% load static %}
+        <title>Корзина</title>
+    <meta name="Description" content="Надежные решения для промышленной фильтрации воды."> 
+    <meta name="Keywords" content="Meta Keywords"> 
+    <meta property="og:title" content="Каталог" /> 
+    <meta property="og:description" content="Надежные решения для промышленной фильтрации воды." /> 
+    <meta property="og:image" content="https://atekwater.ru/uploads/option/logopopub.jpg" />     <link href="/media/css/plugin/swiper.min.css" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/jquery.formstyler.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/jquery.jscrollpane.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/main.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/datepicker.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/basket.css' %}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/media/images/favicon.png" sizes="32x32">
+    <!-- <link href="https://yandex.st/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=x3Ts6t61z0JautYfyhVvxu2pTr9dFJUHbpms4d2JnpFIC0UN2EpihQsnZJ4Tb3UOMvI4j1sXmIsjaGW6070oWQ" charset="UTF-8"></script><script>
+        var is_auth = '0';
+        var chat_close = '0';
+        var chat_time_update = '20';
+        var site = 'prod';
+    </script>
+</head>
+{% block content %}
+<body>
+    {% include 'include/header.html' %}
+    <div class="wrapper">
+        <div class="order-block">
+            <div class="dots dots-top">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>  
+            </div>
+
+            <div class="order__headline">
+                Спасибо за заказ
+            </div>
+            <div class="order__info">
+                <span>Номер вашего заказа:&nbsp;&nbsp; <b>{{order_number}}</b></span>
+                <span>Получатель:&nbsp;&nbsp; <b>{{order_FIO}}</b></span>
+                <span>Способ доставки:&nbsp;&nbsp; <b>{{order_delivery_type}}</b></span>
+                {% if order_delivery_type == "Доставка" %}
+                    <span>Адрес доставки:&nbsp;&nbsp; <b>{{order_delivery_address}}</b></span>
+                {% else %}
+                    <span>Пункт выдачи:&nbsp;&nbsp; <b>Ул. Ленина 1</b></span>
+                {% endif %}
+                <span>Номер телефона:&nbsp;&nbsp; <b>{{order_phone}}</b></span>
+                <span>Почта:&nbsp;&nbsp; <b>{{order_email}}</b></span>
+            </div>
+            <div class="dots dots-middle">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span> 
+                <span></span>  
+            </div>
+            <div class="order__text">
+                Благодарим Вас, что вы выбрали нас.<br>Мы отправили вам на почту информацию, необходимую для получения заказа.<br><br>Вы можете отслеживать состояние заказа на вкладке <a href="#">Заказ.</a>. Для получения данных по заказу, укажите полученный вами код.<br><br>
+                В случае проблем, свяжитесь с нами по номеру телефона: <a href="tel:88000000000">8 (800) 000-00-00</a><br>
+                Или напиште на почту: <a href="mailto:contact@vodov.ru" >
+                    contact@vodov.ru
+                </a>
+            </div>
+            <div class="dots dots-bottom">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>  
+            </div>
+        </div>
+
+        <a href="/catalog">
+            <div class="order__button">
+                К новым покупкам
+            </div>
+        </a>
+    	
+
+
+        {% include 'include/footer.html' %}
+    </div>
+</body>
+{% endblock %}
+</html>

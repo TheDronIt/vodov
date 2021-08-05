@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from .models import *
+import random
 
 
 def index(request):
@@ -229,7 +230,10 @@ def basket(request):
 	if not session_key:
 		request.session.cycle_key()
 	#basket_info = Basket.objects.filter(session_key=session_key).filter(pr_category_id=category_id).filter(pr_id=id)
-	basket_available = Basket.objects.filter(session_key=session_key)
+
+	finish_order = 0
+
+	basket_available = Basket.objects.filter(session_key=session_key).order_by('id')
 
 	basket_product = []
 
@@ -266,12 +270,139 @@ def basket(request):
 					price=about_basket_product.Price,
 					full_product_price=about_basket_product.Price * product.pr_value,
 				))
-		print(basket_product)
-	else:
-		print("Товара нет")
+
+
+	basket_price = 0	
+	for product in basket_product:
+		basket_price = basket_price + (product['price'] * product['pr_value'])
+
+
+
+	if request.method == "POST":
+		button = request.POST['button']
+		if button != "Оформить":
+			product_id = request.POST['pr_id']
+			product_category_id = request.POST['pr_category_id']
+
+			get_value_order = Basket.objects.filter(session_key=session_key).filter(pr_category_id=product_category_id).get(pr_id=product_id)
+			if button == "+":
+				Basket.objects.filter(session_key=session_key).filter(pr_category_id=product_category_id).filter(pr_id=product_id).update(pr_value = int(get_value_order.pr_value)+1)
+			elif button == "-":
+				Basket.objects.filter(session_key=session_key).filter(pr_category_id=product_category_id).filter(pr_id=product_id).update(pr_value = int(get_value_order.pr_value)-1)
+				get_value_order = Basket.objects.filter(session_key=session_key).filter(pr_category_id=product_category_id).get(pr_id=product_id)
+				if get_value_order.pr_value < 1:
+					Basket.objects.filter(session_key=session_key).filter(pr_category_id=product_category_id).filter(pr_id=product_id).delete()
+			elif button == "✖":
+				Basket.objects.filter(session_key=session_key).filter(pr_category_id=product_category_id).filter(pr_id=product_id).delete()
+		
+			return HttpResponseRedirect("/basket")
+		else:
+			FIO = request.POST['FIO']
+			Phone = request.POST['Phone']
+			Email = request.POST['Email']
+			Comment = request.POST['Comment']
+			order_number = ""
+			
+
+			Address = ""
+			Delivery = ""
+			if request.POST['Delivery_type'] == "1":
+				Delivery = "Самовывоз"
+			elif request.POST['Delivery_type'] == "2":
+				Delivery = "Доставка"
+
+			if request.POST['Delivery_type'] == "2":
+				Street = "-"
+				House = "-"
+				Door = "-"
+				if request.POST['Street']:
+					Street = request.POST['Street']
+				if request.POST['House']:
+					House = request.POST['House']
+				if request.POST['Door']:
+					Door = request.POST['Door']
+				Address = Street +" "+House+", "+Door
+				
+
+			Order_name = []
+			Order_value = []
+			Order_price = []
+			Order_full_price = []
+			Order_type = []
+			Order_id = []
+			for basket_product in basket_product:
+				Order_name.append(basket_product['name'])
+				Order_value.append(basket_product['pr_value'])
+				Order_price.append(basket_product['price'])
+				Order_full_price.append(basket_product['full_product_price'])
+				Order_type.append(basket_product['pr_category_id'])
+				Order_id.append(basket_product['pr_id'])
+
+		
+			db_Order = ""
+			for i in range(0, len(basket_available)):
+				OP_name = ''.join(Order_name[i])
+				OP_value = ''.join(str(Order_value[i]))
+				OP_price = ''.join(str(Order_price[i]))
+				OP_full_price = ''.join(str(Order_full_price[i]))
+				db_Order = str(db_Order) + str(i+1) + ") " +OP_name + " | Кол-во: "  + OP_value + " | за 1: " +  OP_price  + "р. | Сумма: " + OP_full_price + "р \n"
+			Price = basket_price
+
+			Order_info = Order.objects.filter(FIO=FIO).filter(Phone=Phone).filter(Email=Email).filter(Status="Обрабатывается").filter(Order=db_Order)
+			
+			
+			if not db_Order:
+				return HttpResponseRedirect("/")
+
+			if not Order_info:
+	
+				def customer_code():
+					if request.POST['Delivery_type'] == "1":
+						Delivery_code_word = "P"
+					elif request.POST['Delivery_type'] == "2":
+						Delivery_code_word = "D"
+					elif request.POST['Delivery_type'] == "2":
+						Delivery_code_word = "ERROR"
+					code = [Delivery_code_word]
+					for i in range(10): 
+						code.append(str(random.randint(0,10)))
+					order_number = "".join(code)
+					return order_number
+					
+				unique_code = 0
+				while unique_code != 1:
+					order_number = customer_code()
+					print(order_number)
+					if not Order.objects.filter(Code=order_number):
+						unique_code = 1
+
+
+				db = Order(Code=order_number, FIO=FIO, Phone=Phone, Email=Email, Address=Address, Comment=Comment, Order=db_Order, Delivery=Delivery, Price=Price, Status="Обрабатывается")
+				Basket.objects.filter(session_key=session_key).delete()
+				db.save()
+
+			if order_number == "":
+				return HttpResponseRedirect("/")
+
+			data = {
+				'order_number': order_number,
+				'order_delivery_type' :Delivery,
+				'order_delivery_address': Address,
+				'order_phone': Phone,
+				'order_email': Email,
+				'order_FIO': FIO
+			}
+			
+			return render(request, 'include/order.html', data)
 
 	data = {
-		'basket_product': basket_product
+		'basket_product': basket_product,
+		'basket_price': basket_price,
+		'finish_order': finish_order
 	}
 
 	return render(request, 'page/basket.html',data)
+
+
+def order(request):
+	return render(request, 'include/order.html')

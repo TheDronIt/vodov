@@ -845,3 +845,30 @@ class Basket(models.Model):
 
 	def __str__(self):
 		return str(self.id)
+
+
+class Order(models.Model):
+	Status_list = [
+		("Обрабатывается", "Обрабатывается"),
+		("Доставляется", "Доставляется"),
+		("Готово к выдаче", "Готово к выдаче"),
+		("Выдано", "Выдано")
+	]
+	Delivery_list = [
+		("Самовывоз", "Самовывоз"),
+		("Доставка", "Доставка")
+	]
+	Code = models.CharField(max_length=120, verbose_name='Номер заказа')
+	FIO = models.CharField(max_length=120, verbose_name='ФИО')
+	Phone = models.CharField(max_length=120, verbose_name='Номер телефона')
+	Email = models.CharField(max_length=120, verbose_name='Почта')
+	Order = models.TextField(verbose_name='Заказ')
+	Delivery =  models.CharField(max_length=50, choices=Delivery_list, verbose_name='Тип доставки')
+	Address = models.CharField(max_length=120, verbose_name='Адрес')
+	Comment = models.TextField(verbose_name='Комментарий')
+	Price = models.IntegerField(verbose_name='Итоговая цена')
+	Status = models.CharField(max_length=50, choices=Status_list, verbose_name='Статус заказа')
+	
+
+	def __str__(self):
+		return str(self.Code)+" | "+str(self.Status)
