@@ -3,3 +3,4 @@ db
 Обсудить.txt
 .gitignore
 /static
+/db
