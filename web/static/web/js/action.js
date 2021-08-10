@@ -332,13 +332,15 @@ function changeContactsFilter(el) {
 function openHeaderSearch(el) {
   this.input = el.siblings(".input-search");
   event.stopPropagation();
-
+	
   if (this.input.hasClass("active")) {
     this.input.submit();
-  } else {
+  }
+  else {
     this.input.addClass("active");
     this.input.find("input").trigger("focus");
   }
+  
 }
 
 function putInSearch(el) {

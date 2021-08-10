@@ -5,7 +5,41 @@ import random
 
 
 def index(request):
-	return render(request, 'page/index.html') 
+	news_len = len(News.objects.all())
+
+	if news_len >= 2:
+		news = News.objects.all().order_by("-id")[:2]
+		news1_image = news[0].Image.url
+		news1_headline = news[0].Title
+		news1_link = "/news/"+str(news[0].id)
+		news2_image = news[1].Image.url
+		news2_headline = news[1].Title
+		news2_link = "/news/"+str(news[1].id)
+	elif news_len == 0:
+		news1_image = "/static/web/img/smile-man.png"
+		news1_headline = "Добро пожаловать!"
+		news1_link = "#"
+		news2_image = "/static/web/img/smile-man2.png"
+		news2_headline = "Хорошего дня!"
+		news2_link = "#"
+	elif news_len == 1:
+		news = News.objects.all().order_by("-id")[:1]
+		news1_image = news[0].Image.url
+		news1_headline = news[0].Title
+		news1_link = "/news/"+str(news[0].id)
+		news2_image = "/static/web/img/smile-man2.png"
+		news2_headline = "Хорошего дня!"
+		news2_link = "#"
+
+	data = {
+		'news1_image': news1_image,
+		'news1_headline': news1_headline,
+		'news1_link': news1_link,
+		'news2_image': news2_image,
+		'news2_headline': news2_headline,
+		'news2_link': news2_link,
+	}
+	return render(request, 'page/index.html', data) 
 
 def catalog(request):
 
@@ -431,7 +465,6 @@ def aboutorder(request):
 				code_found = 1
 				code_number = code
 				code_status = order_code.Status
-				print(code_number + " / " + code_status)
 			else:
 				message = "Заказ не найден"
 	data = {
@@ -441,3 +474,185 @@ def aboutorder(request):
 		'code_status': code_status
 	}
 	return render(request, 'page/aboutorder.html',data)
+
+
+
+def search(request):
+	search = []
+	ERROR = ""
+	if request.method == "GET":
+		if not 'q' in request.GET:
+			return HttpResponseRedirect("/search?q=")
+		q = request.GET['q']
+		if q == "":
+			ERROR = "Не указана строка запроса."
+		else:
+			product = Household_filters.objects.filter(Name__icontains=q)
+			for i in product:
+				search.append(dict(
+					name = str(i.Name),
+					price = str(i.Price),
+					image = str(i.Image.url),
+					vendor = str(i.Vendor),
+					link = "/product/1/"+str(i.id)
+				))
+
+			product = Optional_equipment.objects.filter(Name__icontains=q)
+			for i in product:
+				search.append(dict(
+					name = str(i.Name),
+					price = str(i.Price),
+					image = str(i.Image.url),
+					vendor = str(i.Vendor),
+					link = "/product/2/"+str(i.id)
+				))
+
+			product = Components.objects.filter(Name__icontains=q)
+			for i in product:
+				search.append(dict(
+					name = str(i.Name),
+					price = str(i.Price),
+					image = str(i.Image.url),
+					vendor = str(i.Vendor),
+					link = "/product/3/"+str(i.id)
+				))
+
+			product = Kits.objects.filter(Name__icontains=q)
+			for i in product:
+				search.append(dict(
+					name = str(i.Name),
+					price = str(i.Price),
+					image = str(i.Image.url),
+					vendor = str(i.Vendor),
+					link = "/product/4/"+str(i.id)
+				))
+
+			product = Osmosis_and_Ultrafiltration.objects.filter(Name__icontains=q)
+			for i in product:
+				search.append(dict(
+					name = str(i.Name),
+					price = str(i.Price),
+					image = str(i.Image.url),
+					vendor = str(i.Vendor),
+					link = "/product/5/"+str(i.id)
+				))
+
+			product = Ultraviolet_sterilizers.objects.filter(Name__icontains=q)
+			for i in product:
+				search.append(dict(
+					name = str(i.Name),
+					price = str(i.Price),
+					image = str(i.Image.url),
+					vendor = str(i.Vendor),
+					link = "/product/6/"+str(i.id)
+				))
+
+			product = Filter_materials.objects.filter(Name__icontains=q)
+			for i in product:
+				search.append(dict(
+					name = str(i.Name),
+					price = str(i.Price),
+					image = str(i.Image.url),
+					vendor = str(i.Vendor),
+					link = "/product/7/"+str(i.id)
+				))
+
+			product = Coarse_filters.objects.filter(Name__icontains=q)
+			for i in product:
+				search.append(dict(
+					name = str(i.Name),
+					price = str(i.Price),
+					image = str(i.Image.url),
+					vendor = str(i.Vendor),
+					link = "/product/8/"+str(i.id)
+				))
+
+			product = News.objects.filter(Title__icontains=q)
+			for i in product:
+				search.append(dict(
+					title = str(i.Title),
+					image = str(i.Image.url),
+					link = "/news/"+str(i.id),
+					date =  str(i.Date.strftime("%d.%m.%Y"))
+				))
+			
+			if len(search) == 0:
+				ERROR = "По вашему запросу ничего не найдено."
+
+
+			page = 1
+
+			if 'page' in request.GET:
+				page = int(request.GET['page'])
+
+
+			search_el = len(search)
+			page_el = 12	
+
+			page_value = int(search_el / page_el)
+
+			if search_el % page_el != 0:
+				page_value = page_value + 1
+
+			page_before = page - 2
+			if page_before < 1:
+				page_before = 1
+
+			page_after = page + 2
+			if page_after > page_value:
+				page_after = page_value
+
+			page_range = []
+			for i in range(page_before, page_after+1):
+				page_range.append(i)
+	
+			from_first = 0
+			to_last = 0
+			if page_before != 1:
+				from_first = 1
+			if page_after != page_value:
+				to_last = page_value
+			
+			show_pagination = 1
+			if len(page_range) == 1:
+				show_pagination = 0
+
+			search_all = []
+			search_all = search
+			show_search_el_to = page * page_el
+			show_search_el_from = show_search_el_to - page_el + 1
+			search = []
+			
+			if show_search_el_to > len(search_all):
+				show_search_el_to = len(search_all)
+
+			for i in range(show_search_el_from-1, show_search_el_to):	
+				if 'title' in search_all[i]:
+					search.append(dict(
+						title = str(search_all[i]['title']),
+						image = str(search_all[i]['image']),
+						link = str(search_all[i]['link']),
+						date =  str(search_all[i]['date'])
+					))
+				else:
+					search.append(dict(
+						name = str(search_all[i]['name']),
+						price = str(search_all[i]['price']),
+						image = str(search_all[i]['image']),
+						vendor = str(search_all[i]['vendor']),
+						link = str(search_all[i]['link']),
+					))
+				
+			
+	data = {
+		'page':page,
+		'page_range':page_range,
+		'from_first': from_first,
+		'to_last': to_last,
+		'show_pagination': show_pagination,
+
+		'search': search,
+		'ERROR': ERROR,
+		'q':q
+	}
+	return render(request, 'page/search.html', data)

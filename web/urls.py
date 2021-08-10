@@ -12,5 +12,6 @@ urlpatterns = [
     path('news', views.news),
     path('news/<int:id>', views.news_page),
     path('order', views.aboutorder),
+    path('search', views.search),
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain"))
     ]

@@ -47,7 +47,7 @@ $('.button1').click(function()
                     <div id="aboutorder_error">
                         <div style="padding-left: 20px;"></div>
                         <div>{{message}}</div>
-                        <div">
+                        <div>
                             <button class="aboutorder_error-btn" onClick="document.getElementById('aboutorder_error').style.cssText='animation-duration: 1.3s;  animation-name: close; animation-fill-mode: forwards;'">✖</button>             
                         </div>
                     </div>
@@ -55,7 +55,7 @@ $('.button1').click(function()
                     <div style="text-align: center;">Код заказа</div>
                     <form method="POST">
                     {% csrf_token %}
-                        <input name="code" placeholder="Код заказа" type="text" class="aboutorder__input"> 
+                        <input name="code" placeholder="Код заказа" type="text" class="aboutorder__input" maxlength="11"> 
                         <div class="aboutorder__button-block">
                             <input class="aboutorder__button" name="button" type="submit" value="Получить информацию">
                         </div>      

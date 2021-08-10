@@ -1,3 +1,5 @@
 db
 Нужно.txt
 Обсудить.txt
+.gitignore
+/static

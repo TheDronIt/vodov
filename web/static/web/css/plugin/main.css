@@ -16357,7 +16357,8 @@ html.notTouch .filterBtn-transparent:hover {
     max-width: 500px;
     padding: 35px 20px;
     margin: 30px auto 0 auto;
-    background-color: #E7E7E7;
+    /*background-color: #E7E7E7;*/
+    border: 1.2px solid lightgray;
     border-radius: 10px;
 }
 .aboutorder__headline
@@ -16425,10 +16426,11 @@ html.notTouch .filterBtn-transparent:hover {
 .aboutorder__input
 {  
     margin-top: 5px;
-    width: 100%;
+    max-width: 120px;
     padding: 6px 5px;
     text-align: center;
-    border-radius: 4px;
+    /*border-radius: 4px;*/
+    border-bottom: 1.6px solid gray;
 }
 .aboutorder__button-block
 {
