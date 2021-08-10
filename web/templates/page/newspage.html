@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-noTransition="true" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
+    <meta name="csrf-param" content="_csrf-frontend">
+    <meta name="csrf-token" content="_qtifBQbaU5Kjtz3-FFDKxNvXvvBxUeky2jC0DEdZu-bxDote0E6fhyjkLSUMG5gZAcwmrKyFZC8HYSqA1xShg==">
+        {% load static %}
+        <title>Новости</title>
+    <meta name="Description" content="Надежные решения для промышленной фильтрации воды."> 
+    <meta name="Keywords" content="Meta Keywords"> 
+    <meta property="og:title" content="Каталог" /> 
+    <meta property="og:description" content="Надежные решения для промышленной фильтрации воды." /> 
+    <meta property="og:image" content="https://atekwater.ru/uploads/option/logopopub.jpg" />     <link href="/media/css/plugin/swiper.min.css" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/jquery.formstyler.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/jquery.jscrollpane.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/main.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/datepicker.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/basket.css' %}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/media/images/favicon.png" sizes="32x32">
+    <!-- <link href="https://yandex.st/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=x3Ts6t61z0JautYfyhVvxu2pTr9dFJUHbpms4d2JnpFIC0UN2EpihQsnZJ4Tb3UOMvI4j1sXmIsjaGW6070oWQ" charset="UTF-8"></script><script>
+        var is_auth = '0';
+        var chat_close = '0';
+        var chat_time_update = '20';
+        var site = 'prod';
+    </script>
+</head>
+{% block content %}
+<body>
+    {% include 'include/header.html' %}
+    <div class="wrapper">
+        
+
+
+        
+<ul class="breadCrumb">
+    <li class="breadCrumb__item"><a href="/">Главная</a></li>
+    <li class="breadCrumb__item"><a href="/news">Новости</a></li>
+    <li class="breadCrumb__item"><span >{{news.Title}}</span></li>
+</ul>
+<!-- header END -->
+
+<!-- popUps -->
+<div class="popUp-wrapper">
+    <div class="popUp popUp-videoPlayer" data-type="videoPlayer">
+        <iframe src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+<!-- popUps END -->
+<div class="content content-newsItemPage">
+
+    <div class="container" news_id="451">
+
+        <div class="about">
+            <div class="companyInfo">
+                <div class="companyInfo__text">
+                    <h2>{{news.Title}}</h2>
+
+                    <div class="newsItemDate">{{news.Date.date}}</div>
+
+                    <div class="newsItemImage">
+                        <img src="{{news.Image.url}}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{news.Text|safe}}
+    </div>
+</div>
+      
+
+{% include 'include/footer.html' %}
+    </div>
+</body>
+{% endblock %}
+</html>

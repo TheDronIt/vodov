@@ -872,3 +872,13 @@ class Order(models.Model):
 
 	def __str__(self):
 		return str(self.Code)+" | "+str(self.Status)
+
+
+class News(models.Model):
+	Title = models.CharField(max_length=120, verbose_name='Заголовок')
+	Image = models.ImageField(upload_to='news/', verbose_name='Изображение')
+	Text = models.TextField(verbose_name='Содержание')
+	Date = models.DateField(verbose_name='Дата')
+
+	def __str__(self):
+		return str(self.id)+" | "+str(self.Title)

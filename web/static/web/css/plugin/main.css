@@ -16349,3 +16349,112 @@ html.notTouch .filterBtn-transparent:hover {
 .specifications__smallText {
     font-size: 12px;
 }
+
+
+
+.aboutorder__block
+{
+    max-width: 500px;
+    padding: 35px 20px;
+    margin: 30px auto 0 auto;
+    background-color: #E7E7E7;
+    border-radius: 10px;
+}
+.aboutorder__headline
+{
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.aboutorder__code
+{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    overflow: hidden;
+}
+#aboutorder_error
+{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    margin-bottom: 20px;
+    background-color: #F74E4E;
+    border-radius: 8px;
+    line-height: 2rem;
+    font-weight: bold;
+    color: white;
+    position: relative;
+
+    animation-duration: 1.3s;
+    animation-name: open;
+    animation-fill-mode: forwards;
+}
+@keyframes open {
+  from {
+    height: 0px;
+    bottom: 40px;
+    
+  }
+  to {
+    bottom: 0px;
+    }
+}
+    
+
+@keyframes close {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: 40px;
+    height: 0px;
+  }
+}
+.aboutorder_error-btn
+{
+    background-color: #F74E4E; 
+    padding-right: 10px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+.aboutorder_error-btn:hover
+{
+    color: white;
+}
+.aboutorder__input
+{  
+    margin-top: 5px;
+    width: 100%;
+    padding: 6px 5px;
+    text-align: center;
+    border-radius: 4px;
+}
+.aboutorder__button-block
+{
+    width: 200px;
+    margin: 20px auto 0 auto;
+}
+.aboutorder__button
+{
+    background-color: #434343;
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin: auto;
+    color: white;
+    font-weight: bold;
+    transition-duration: 0.15s;
+}
+.aboutorder__button:hover
+{
+    background-color: #07b259;
+}
+.aboutorder__info
+{
+    text-align: center;
+}
+.aboutorder__info > span
+{
+    display: block;
+    margin: 4px 0;
+}

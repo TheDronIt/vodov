@@ -404,5 +404,40 @@ def basket(request):
 	return render(request, 'page/basket.html',data)
 
 
-def order(request):
-	return render(request, 'include/order.html')
+def news(request):
+	news = News.objects.all()
+	return render(request, 'page/news.html', locals())
+
+def news_page(request, id):
+	try:
+		news = News.objects.get(id=id)
+	except:
+		return HttpResponseRedirect("/news") #можно на 404
+	return render(request, 'page/newspage.html',locals())
+
+
+def aboutorder(request):
+	code_found = 0
+	message = ""
+	code_number = ""
+	code_status = ""
+	if request.method == "POST":
+		button = request.POST['button']
+		if button == "Получить информацию":
+			code = request.POST['code']
+			is_order_code = Order.objects.filter(Code=code)
+			if is_order_code:
+				order_code = Order.objects.get(Code=code)
+				code_found = 1
+				code_number = code
+				code_status = order_code.Status
+				print(code_number + " / " + code_status)
+			else:
+				message = "Заказ не найден"
+	data = {
+		'message': message,
+		'code_found': code_found,
+		'code_number': code_number,
+		'code_status': code_status
+	}
+	return render(request, 'page/aboutorder.html',data)
