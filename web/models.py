@@ -532,6 +532,10 @@ class CategoryFilter(models.Model):
 
 
 class Household_filters(models.Model):
+	class Meta:
+		verbose_name = 'Бытовые фильтры'
+		verbose_name_plural = 'Бытовые фильтры'
+
 	Category_list = [
 		("191", "Колбы BB (Aquapro)"),
 		("192", "Колбы SL (Aquapro)"),
@@ -583,6 +587,10 @@ class Household_filters(models.Model):
 
 
 class Optional_equipment(models.Model):
+	class Meta:
+		verbose_name = 'Дополнительное оборудование'
+		verbose_name_plural = 'Дополнительное оборудование'
+
 	Category_list = [
 		("13", "Аксессуары"),
 		("12", "Баки"),
@@ -623,6 +631,10 @@ class Optional_equipment(models.Model):
 
 
 class Components(models.Model):
+	class Meta:
+		verbose_name = 'Комплектующие'
+		verbose_name_plural = 'Комплектующие'
+
 	Category_list = [
 		("71", "Баки реагентные"),
 		("56", "Аксессуары (CLACK)"),
@@ -667,7 +679,12 @@ class Components(models.Model):
 	def __str__(self):
 		return str(self.Name)
 
+
 class Kits(models.Model):
+	class Meta:
+		verbose_name = 'Комплекты'
+		verbose_name_plural = 'Комплекты'
+
 	Category_list = [
 		("263", "Оголовок Runxin"),
 		("262", "Стандартный оголовок"),
@@ -726,6 +743,10 @@ class Kits(models.Model):
 
 
 class Osmosis_and_Ultrafiltration(models.Model):
+	class Meta:
+		verbose_name = 'Осмосы и Ультрафильтрация'
+		verbose_name_plural = 'Осмосы и Ультрафильтрация'
+
 	Category_list = [
 		("217", "Коммерческие осмосы NatureWater"),
 		("269", "NOYI"),
@@ -763,7 +784,12 @@ class Osmosis_and_Ultrafiltration(models.Model):
 	def __str__(self):
 		return str(self.Name)
 
+
 class Ultraviolet_sterilizers(models.Model):
+	class Meta:
+		verbose_name = 'УФ стерилизаторы'
+		verbose_name_plural = 'УФ стерилизаторы'
+
 	Category_list = [
 		("91", "УФ-лампы, сменные элементы"),
 		("90", "УФ-стерилизаторы Aquapro"),
@@ -787,7 +813,12 @@ class Ultraviolet_sterilizers(models.Model):
 	def __str__(self):
 		return str(self.Name)
 
+
 class Filter_materials(models.Model):
+	class Meta:
+		verbose_name = 'Фильтрующие материалы'
+		verbose_name_plural = 'Фильтрующие материалы'
+
 	Category_list = [
 		("42", "Ионообменные"),
 		("41", "Осветление и обезжелезивание")
@@ -806,7 +837,12 @@ class Filter_materials(models.Model):
 	def __str__(self):
 		return str(self.Name)
 
+
 class Coarse_filters(models.Model):
+	class Meta:
+		verbose_name = 'Фильтры грубой очистки'
+		verbose_name_plural = 'Фильтры грубой очистки'
+
 	Category_list = [
 		("102", "CEPEX"),
 		("214", "NOVHIDRO/ROFISA"),
@@ -838,6 +874,10 @@ class Coarse_filters(models.Model):
 
 
 class Basket(models.Model):
+	class Meta:
+		verbose_name = 'Корзина пользователя (системное)'
+		verbose_name_plural = 'Корзина пользователя (системное)'
+
 	session_key = models.CharField(max_length=120)
 	pr_category_id = models.CharField(max_length=120)
 	pr_id = models.CharField(max_length=120)
@@ -848,6 +888,10 @@ class Basket(models.Model):
 
 
 class Order(models.Model):
+	class Meta:
+		verbose_name = 'Заказы'
+		verbose_name_plural = 'Заказы'
+
 	Status_list = [
 		("Обрабатывается", "Обрабатывается"),
 		("Доставляется", "Доставляется"),
@@ -875,6 +919,10 @@ class Order(models.Model):
 
 
 class News(models.Model):
+	class Meta:
+		verbose_name = 'Новости'
+		verbose_name_plural = 'Новости'
+
 	Title = models.CharField(max_length=120, verbose_name='Заголовок')
 	Image = models.ImageField(upload_to='news/', verbose_name='Изображение')
 	Text = models.TextField(verbose_name='Содержание')

@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+from .password import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -9,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'c@_7ux2=vs+j6(x1pl@)t62xq8apz+w%(@8^201j*c)4eu9%e4'
+SECRET_KEY = secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -187,3 +188,11 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'supvportk@gmail.com'
+EMAIL_HOST_PASSWORD = email_pass
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True

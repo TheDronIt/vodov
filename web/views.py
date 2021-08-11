@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
 from .models import *
 import random
 
@@ -331,6 +332,7 @@ def basket(request):
 		
 			return HttpResponseRedirect("/basket")
 		else:
+			ERROR = 0
 			FIO = request.POST['FIO']
 			Phone = request.POST['Phone']
 			Email = request.POST['Email']
@@ -415,16 +417,23 @@ def basket(request):
 				Basket.objects.filter(session_key=session_key).delete()
 				db.save()
 
+				mail = send_mail(
+				    'Vodov | Информация по заказу',
+				    'Код вашего заказа: '+str(order_number)+'\nВы можете узнать состояние вашего заказа, вписав этот код на сайте в пунке "Заказ".\n\nСпособ доставки: '+Delivery,
+				    'supvportk@gmail.com',
+				    [str(Email)],
+				    fail_silently=False,
+				)
 			if order_number == "":
 				return HttpResponseRedirect("/")
-
 			data = {
 				'order_number': order_number,
 				'order_delivery_type' :Delivery,
 				'order_delivery_address': Address,
 				'order_phone': Phone,
 				'order_email': Email,
-				'order_FIO': FIO
+				'order_FIO': FIO,
+				'ERROR': ERROR
 			}
 			
 			return render(request, 'include/order.html', data)
@@ -439,7 +448,7 @@ def basket(request):
 
 
 def news(request):
-	news = News.objects.all()
+	news = News.objects.all().order_by("-id")
 	return render(request, 'page/news.html', locals())
 
 def news_page(request, id):

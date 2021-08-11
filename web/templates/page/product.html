@@ -9,10 +9,10 @@
     <meta name="csrf-token" content="kMXTCTUBKw4vTQmyFlTOTMtFDXD5f2HbA3tTSLpa0PX2_KRBDFZgR0F9VtV3M7kZ-HFLIZceI4RJAgAS7S3lvw==">
     {% load static %}    
     <title>{{Product.Name}}</title>
-    <meta name="Description" content="{{Product.About}}"> 
+    <meta name="Description" content="{{Product.About|safe}}"> 
     <meta name="Keywords" content="Meta Keywords"> 
     <meta property="og:title" content="{{product.Name}}" /> 
-    <meta property="og:description" content="{{Product.About}}" /> 
+    <meta property="og:description" content="{{Product.About|safe}}" /> 
     <meta property="og:image" content="https://atekwater.ru/uploads/catalog/files/a31174b148934ceb056dac23949fc21d.jpg" />
 <link href="{% static 'web/css/plugin/swiper.min.css' %}" rel="stylesheet">
 <link href="{% static 'web/css/plugin/jquery.formstyler.css' %}" rel="stylesheet">
@@ -1420,7 +1420,7 @@
 
 	    <div class="productCart__info_tab">
 	        <div class="productCart__info_tabItem" data-type="disctiption">
-	            <p>{{Product.About}}</p>
+	            <p>{{Product.About|safe}}</p>
 	        </div>
 	        <div class="productCart__info_tabItem productCart__info_tabItem-active" data-type="specifications">
 

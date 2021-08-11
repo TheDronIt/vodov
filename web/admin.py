@@ -95,6 +95,9 @@ class Coarse_filtersAdmin(admin.ModelAdmin):
     form = Coarse_filtersAdminForm   
 
 
+class OrderAdmin(admin.ModelAdmin):
+    search_fields = ("Code__startswith","FIO__startswith","Phone__startswith")
+
 admin.site.register(Household_filters, Household_filtersAdmin)
 admin.site.register(Optional_equipment, Optional_equipmentAdmin)
 admin.site.register(Components, ComponentsAdmin)
@@ -104,7 +107,7 @@ admin.site.register(Ultraviolet_sterilizers, Ultraviolet_sterilizersAdmin)
 admin.site.register(Filter_materials, Filter_materialsAdmin)
 admin.site.register(Coarse_filters, Coarse_filtersAdmin)
 admin.site.register(Basket)
-admin.site.register(Order)
+admin.site.register(Order, OrderAdmin)
 admin.site.register(News, NewsAdmin)
 
 
