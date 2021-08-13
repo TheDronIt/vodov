@@ -13,7 +13,8 @@
     <meta name="Keywords" content="Meta Keywords"> 
     <meta property="og:title" content="Каталог" /> 
     <meta property="og:description" content="Надежные решения для промышленной фильтрации воды." /> 
-    <meta property="og:image" content="https://atekwater.ru/uploads/option/logopopub.jpg" />     <link href="/media/css/plugin/swiper.min.css" rel="stylesheet">
+    <meta property="og:image" content="https://atekwater.ru/uploads/option/logopopub.jpg" />
+    <link href="/media/css/plugin/swiper.min.css" rel="stylesheet">
     <link href="{% static 'web/css/plugin/jquery.formstyler.css' %}" rel="stylesheet">
     <link href="{% static 'web/css/plugin/jquery.jscrollpane.css' %}" rel="stylesheet">
     <link href="{% static 'web/css/plugin/main.css' %}" rel="stylesheet">
@@ -21,12 +22,13 @@
     <link href="{% static 'web/css/basket.css' %}" rel="stylesheet">
     <link rel="icon" type="image/png" href="/media/images/favicon.png" sizes="32x32">
     <!-- <link href="https://yandex.st/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
-    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=x3Ts6t61z0JautYfyhVvxu2pTr9dFJUHbpms4d2JnpFIC0UN2EpihQsnZJ4Tb3UOMvI4j1sXmIsjaGW6070oWQ" charset="UTF-8"></script><script>
-        var is_auth = '0';
-        var chat_close = '0';
-        var chat_time_update = '20';
-        var site = 'prod';
-    </script>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=x3Ts6t61z0JautYfyhVvxu2pTr9dFJUHbpms4d2JnpFIC0UN2EpihQsnZJ4Tb3UOMvI4j1sXmIsjaGW6070oWQ" charset="UTF-8"></script>
+    <script>
+    $(function(){
+  //2. Получить элемент, к которому необходимо добавить маску
+  $("#Phone").mask("8(999) 999-9999");
+});
+</script>
 </head>
 {% block content %}
 <body>
@@ -87,7 +89,7 @@
                     <input name="FIO" placeholder="ФИО" type="text" class="input" required>
 
                     <a style="color: red;">*</a>Номер телефона<br>
-                    <input name="Phone" placeholder="Номер телефона" maxlength="12" type="text" class="input" required>
+                    <input name="Phone" id="Phone" placeholder="Номер телефона" maxlength="12" type="text" class="input" required>
 
                     <a style="color: red;">*</a>Email<br>
                     <input name="Email" placeholder="Email" type="email" class="input" required>
