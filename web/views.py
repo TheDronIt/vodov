@@ -401,7 +401,7 @@ def basket(request):
 						Delivery_code_word = "ERROR"
 					code = [Delivery_code_word]
 					for i in range(10): 
-						code.append(str(random.randint(0,10)))
+						code.append(str(random.randint(0,9)))
 					order_number = "".join(code)
 					return order_number
 					
