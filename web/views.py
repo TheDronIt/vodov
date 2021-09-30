@@ -228,7 +228,7 @@ def product(request,category_id,id):
 		
 	basket_info = Basket.objects.filter(session_key=session_key).filter(pr_category_id=category_id).filter(pr_id=id)
 
-	button = "Добавить"
+	button = "В корзину"
 	if basket_info:
 			element_exist = Basket.objects.filter(session_key=session_key).filter(pr_category_id=category_id).get(pr_id=id)
 			if element_exist.pr_value:
@@ -484,7 +484,8 @@ def aboutorder(request):
 	}
 	return render(request, 'page/aboutorder.html',data)
 
-
+def contacts(request):
+	return render(request, 'page/contacts.html')
 
 def search(request):
 	search = []

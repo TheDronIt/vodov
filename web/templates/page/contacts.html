@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
+    <meta name="csrf-param" content="_csrf-frontend">
+    <meta name="csrf-token" content="_qtifBQbaU5Kjtz3-FFDKxNvXvvBxUeky2jC0DEdZu-bxDote0E6fhyjkLSUMG5gZAcwmrKyFZC8HYSqA1xShg==">
+        {% load static %}
+        <title>Контакты</title>
+    <meta name="Description" content="Надежные решения для промышленной фильтрации воды."> 
+    <meta name="Keywords" content="Meta Keywords"> 
+    <meta property="og:title" content="Каталог" /> 
+    <meta property="og:description" content="Надежные решения для промышленной фильтрации воды." /> 
+    <meta property="og:image" content="https://atekwater.ru/uploads/option/logopopub.jpg" />     <link href="/media/css/plugin/swiper.min.css" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/jquery.formstyler.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/jquery.jscrollpane.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/main.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/datepicker.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/basket.css' %}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/media/images/favicon.png" sizes="32x32">
+</head>
+<body>
+	{% include 'include/header.html' %}
+    <div class="wrapper">
+
+		<ul class="breadCrumb">
+		    <li class="breadCrumb__item"><a href="/">Главная</a></li>
+		    <li class="breadCrumb__item"><span>Контакты</span></li>
+		</ul>
+
+
+		<div class="content content-newsPage content-contactsPage">
+		    <div class="topContainer">
+		        <div class="pageTitle">Контакты</div>
+		    </div>
+		</div>
+		<div class="contacts__content">
+			<div class="content__map">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2644.453427815772!2d135.08971831614875!3d48.4861966792528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5efae9f88205f38f%3A0xba66ce032de5abd3!2z0KLQpiDQrdC60L7QtNC-0Lw!5e0!3m2!1sru!2sru!4v1632887327451!5m2!1sru!2sru" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+				</iframe>
+			</div>
+			<div class="contacts__display">
+				<div class="content__display__headline">Выставка пункт выдачи</div>
+				<div class="content__display__text">г. Хабаровск ул. Ленинградская 28/2<br>ТЦЭкодом</div>
+				<div class="content__display__text" style="font-weight: bold; font-size: 0.8rem;">Пн-Вс: 10.00-20.00<br>
+					<a style="color: lightgray;">Без перерывов и выходных</a>
+				</div><br>
+				<div class="content__display__headline">Телефон</div>
+				<div class="content__display__text">
+					<a href="tel:88007004471">+7 (800) 700-44-71</a>
+				</div>
+				<div class="content__display__headline">Почта</div>
+				<div class="content__display__text">
+					<a href="mailto:vodov27@mail.ru">vodov27@mail.ru</a>
+				</div>
+				<div class="content__display__headline">Instagram</div>
+				<div class="content__display__text">
+					<a href="https://Instagram.com/vodov_khv" target="_blank">vodov_khv</a>
+				</div>
+			</div>
+			
+		</div>
+		<div class="contacts_staff content-newsPage">
+			<div class="pageTitle">Сотрудники</div>
+			<br>
+			<div class="contacts_staff_info">
+				<b>Шведова Нина Александровна</b><br>
+				Директор<br>
+				<a href="tel:89098068108">+7 (909) 806-81-08</a>
+			</div>
+			<div class="contacts_staff_info">
+				<b>Литовченко Евгений Игоревич</b><br>
+				Специалист по подбору оборудования<br>
+				<a href="tel:89244030857">+7 (924) 403-08-57</a>
+			</div>
+		</div>
+
+
+		{% include 'include/footer.html' %}
+	</div>
+</body>
+</html>

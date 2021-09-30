@@ -224,7 +224,7 @@ a {
   color: #fff;
 } */
 
-.content.content-catalogPage {
+.content.content-catalogPage .content.content-contactsPage{
     padding-bottom: 60px;
 }
 
@@ -14318,6 +14318,7 @@ html.notTouch .multiSelect__dropdown_item:hover {
     }
 
     .content-catalogPage,
+    .content-contactsPage,
     .content-catalogProductPage,
     .content-alphachangeInfo,
     .content-alphaOrders,
@@ -14597,7 +14598,7 @@ html.notTouch .multiSelect__dropdown_item:hover {
         margin-top: 15px;
     }
 
-    .content-catalogPage {
+    .content-catalogPage .content-contactsPage {
         padding-top: 22px;
     }
 }
@@ -16459,4 +16460,51 @@ html.notTouch .filterBtn-transparent:hover {
 {
     display: block;
     margin: 4px 0;
+}
+
+
+.content-contactsPage
+{
+    padding-bottom: 0 !important;
+}
+.contacts__content
+{
+    
+    width: 100%;
+}
+.content__map
+{
+    position: absolute;
+    width: 100%;
+    height: 350px;
+}
+.contacts__display
+{
+    position: absolute;
+    width: 320px;
+    height: 350px;
+    background: rgba(84, 84, 84, 0.9);
+    margin-left: 21%;
+    padding: 15px;
+}
+.content__display__text
+{
+    font-size: 0.9rem;
+    color: white;
+    margin-bottom: 15px;
+}
+.content__display__headline
+{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+}
+.contacts_staff
+{
+    margin-top: 450px;
+}
+.contacts_staff_info
+{
+    margin-bottom: 20px;
 }
