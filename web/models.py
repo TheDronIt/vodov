@@ -930,3 +930,16 @@ class News(models.Model):
 
 	def __str__(self):
 		return str(self.id)+" | "+str(self.Title)
+
+
+class Solutions(models.Model):
+	class Meta:
+		verbose_name = 'Готовые решения'
+		verbose_name_plural = 'Готовые решения'
+
+	Name = models.CharField(max_length=120, verbose_name='Название')
+	Image = models.ImageField(upload_to='solutions/', verbose_name='Изображение')
+	Requirements = models.TextField(verbose_name='Требование к воде')
+
+	def __str__(self):
+		return str(self.Name)

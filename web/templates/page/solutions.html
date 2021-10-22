@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-noTransition="true" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
+    <meta name="csrf-param" content="_csrf-frontend">
+    <meta name="csrf-token" content="_qtifBQbaU5Kjtz3-FFDKxNvXvvBxUeky2jC0DEdZu-bxDote0E6fhyjkLSUMG5gZAcwmrKyFZC8HYSqA1xShg==">
+        {% load static %}
+        <title>Готовые решения</title>
+    <meta name="Description" content="Надежные решения для промышленной фильтрации воды."> 
+    <meta name="Keywords" content="Meta Keywords"> 
+    <meta property="og:title" content="Каталог" /> 
+    <meta property="og:description" content="Надежные решения для промышленной фильтрации воды." /> 
+    <meta property="og:image" content="https://atekwater.ru/uploads/option/logopopub.jpg" />     <link href="/media/css/plugin/swiper.min.css" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/jquery.formstyler.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/jquery.jscrollpane.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/main.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/plugin/datepicker.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/basket.css' %}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/media/images/favicon.png" sizes="32x32">
+    <script>
+        var is_auth = '0';
+        var chat_close = '0';
+        var chat_time_update = '20';
+        var site = 'prod';
+    </script>
+</head>
+{% block content %}
+<body>
+    {% include 'include/header.html' %}
+    <div class="wrapper">
+
+<ul class="breadCrumb">
+    <li class="breadCrumb__item"><a href="/">Главная</a></li>
+    <li class="breadCrumb__item"><span>Готовые решения</span></li>
+</ul>
+
+
+<div class="content content-newsPage">
+    <div class="topContainer">
+        <div class="pageTitle">Готовые решения</div>
+    </div>
+
+    <!--
+    <div class="plateList">
+        {% for Solutions in solutions %}
+        <a href="/solutionss/{{Solutions.id}}" class="catalog__item" data-type="video">
+            <div class="catalog__item_top">
+                <div class="catalog__item_image " style="background-image: url({{Solutions.Image.url}});">
+                </div>
+                <div class="catalog__item_text">{{Solutions.Name}}</div>
+            </div>
+            <div class="catalog__item_bottom">
+                <div class="catalog__item_mark">{{News.Date.date}}</div>
+            </div>
+        </a>
+
+        {% endfor %}     
+    </div>
+    -->
+    <div class="solutions__container">
+        {% for Solutions in solutions %}
+        <div class="solutions_el">
+            <div class="solutions_el_image">
+                <img src="{{Solutions.Image.url}}">
+            </div>
+            <div class="solutions_el_card">
+                 <div class="solutions_el_card_name">
+                    {{Solutions.Name}}
+                 </div>
+                 <div class="solutions_el_card_requirements">
+                     {{Solutions.Requirements}}
+                 </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+    <!--
+    <div class="showMore">
+        <div class="showMore__btn" action="SHOW_MORE_NEWS">Показать ещё</div>
+    </div>
+    -->
+
+</div>
+      
+
+    {% include 'include/footer.html' %}
+    </div>
+</body>
+{% endblock %}
+</html>

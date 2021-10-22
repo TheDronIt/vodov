@@ -361,7 +361,7 @@ a {
 
 .header .link-phone {
     font-weight: 600;
-    color: #07b259;
+    color: #1b56a2;
     font-size: 0.875rem;
 }
 
@@ -389,7 +389,7 @@ a {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    border: 1px solid #07b259;
+    border: 1px solid #1b56a2;
     padding: 0 19px;
     border-radius: 20px;
     height: 33px;
@@ -471,7 +471,7 @@ a {
 }
 
 .btn-search .btn__icon svg path {
-    fill: #07b259;
+    fill: #1b56a2;
     transition: 0.3s;
 }
 
@@ -493,7 +493,7 @@ a {
     position: relative;
     width: 20px;
     height: 2px;
-    background-color: #07b259;
+    background-color: #1b56a2;
     -webkit-transition: 0.2s ease-in-out;
     -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
@@ -512,7 +512,7 @@ a {
     -webkit-transition: 0.2s ease-in-out;
     -o-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
-    background-color: #07b259;
+    background-color: #1b56a2;
 }
 
 .btn-burger .btn__icon:before {
@@ -561,7 +561,7 @@ a {
 
 .btn-prev:active svg path,
 .btn-next:active svg path {
-    fill: #07b259;
+    fill: #1b56a2;
 }
 
 .btn-prev.swiper-button-disabled,
@@ -613,7 +613,7 @@ html.notTouch .testList label:hover .inputBlock {
 }
 
 html.notTouch .header__nav_item:hover * {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 html.notTouch .brendSlider {
@@ -679,7 +679,7 @@ html.notTouch .catalog__item_text {
 }
 
 html.notTouch .catalog__item_text:hover {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 html.notTouch .catalog__item_addFavorite:hover svg path {
@@ -688,11 +688,11 @@ html.notTouch .catalog__item_addFavorite:hover svg path {
 
 html.notTouch .btn-prev:hover svg path,
 html.notTouch .btn-next:hover svg path {
-    fill: #07b259;
+    fill: #1b56a2;
 }
 
 html.notTouch .pagePagination__item:hover {
-    border-color: #07b259;
+    border-color: #1b56a2;
     -webkit-transition: 0.1s ease-in-out;
     -o-transition: 0.1s ease-in-out;
     transition: 0.1s ease-in-out;
@@ -703,7 +703,7 @@ html.notTouch a:hover {
 }
 
 html.notTouch .videoSlider__item:hover .videoSlider__item_title {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 html.notTouch .productCart__addToFavorite_text {
@@ -744,8 +744,8 @@ html.notTouch .spareParts__info:hover .spareParts__info_image-container {
 }
 
 html.notTouch .spareParts__info:hover a {
-    color: #07b259;
-    border-color: #07b259;
+    color: #1b56a2;
+    border-color: #1b56a2;
     z-index: 20;
 }
 
@@ -767,9 +767,9 @@ html.notTouch .spareParts__info:hover a {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    background: -webkit-linear-gradient(325deg, #07b259 0%, #004b8a 100%);
-    background: -o-linear-gradient(325deg, #07b259 0%, #004b8a 100%);
-    background: linear-gradient(125deg, #07b259 0%, #004b8a 100%);
+    background: -webkit-linear-gradient(325deg, #1b56a2 0%, #004b8a 100%);
+    background: -o-linear-gradient(325deg, #1b56a2 0%, #004b8a 100%);
+    background: linear-gradient(125deg, #1b56a2 0%, #004b8a 100%);
     height: 600px;
     margin-bottom: 125px;
 }
@@ -842,7 +842,7 @@ html.notTouch .spareParts__info:hover a {
 }
 
 .bannerSlider__pagination .swiper-pagination-bullet-active {
-    background-color: #07b259;
+    background-color: #1b56a2;
     opacity: 1;
     -webkit-transform: scale(1.3);
     -ms-transform: scale(1.3);
@@ -857,7 +857,7 @@ html.notTouch .spareParts__info:hover a {
 .wrapper h4 a,
 .wrapper h5 a,
 .content-newsItemPage a {
-    color: #07b259;
+    color: #1b56a2;
     text-decoration: underline;
 }
 
@@ -956,7 +956,7 @@ html.notTouch .spareParts__info:hover a {
     position: relative;
     font-size: 1.125rem;
     font-weight: 500;
-    color: #07b259;
+    color: #1b56a2;
     padding: 0 28px;
 }
 
@@ -965,7 +965,7 @@ html.notTouch .spareParts__info:hover a {
     position: absolute;
     top: 11.5px;
     left: 0;
-    background-color: #07b259;
+    background-color: #1b56a2;
     width: 20px;
     height: 1px;
 }
@@ -1272,7 +1272,7 @@ html.notTouch .spareParts__info:hover a {
 }
 
 .customPagination .swiper-pagination-bullet-active {
-  background-color: #07b259;
+  background-color: #1b56a2;
   display: block;
 }
 
@@ -1297,7 +1297,7 @@ html.notTouch .spareParts__info:hover a {
 }
 
 .customPagination .swiper-pagination-bullet-active {
-    background-color: #07b259;
+    background-color: #1b56a2;
 }
 
 .whyWe .rowSlider {
@@ -1364,7 +1364,7 @@ html.notTouch .spareParts__info:hover a {
 }
 
 .videoSlider__item-active .videoSlider__item_title {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .videoSlider .btn-prev,
@@ -1665,7 +1665,7 @@ html.notTouch .spareParts__info:hover a {
 .productCart__add-button
 {
     padding: 10px 20px;
-    background-image: linear-gradient(to right, #07b259 40%, white 60% );
+    background-image: linear-gradient(to right, #1b56a2 40%, white 60% );
     background-size: 300% 100%;
     transition: background-position .6s;
     background-position: 100%;
@@ -1674,7 +1674,7 @@ html.notTouch .spareParts__info:hover a {
 }
 .productCart__add-button:hover
 {
-    /*background-color: #07b259;*/
+    /*background-color: #1b56a2;*/
     background-position: 0;
 
 }
@@ -1799,7 +1799,7 @@ html.notTouch .spareParts__info:hover a {
 .circleDiagram__segment-4,
 .circleDiagram__segment-5 {
     /* stroke: #8cedba; */
-    stroke: #07b259;
+    stroke: #1b56a2;
     transition-delay: 0s !important;
 }
 
@@ -1934,7 +1934,7 @@ html.notTouch .spareParts__info:hover a {
 }
 
 .catalogMenu__list_item-current > .catalogMenu__list_trigger {
-    color: #07b259;
+    color: #1b56a2;
     font-weight: 700;
 }
 
@@ -2242,8 +2242,8 @@ html.notTouch .spareParts__info:hover a {
 }
 
 .pagePagination__item-active {
-    border-color: #07b259;
-    background-color: #07b259;
+    border-color: #1b56a2;
+    background-color: #1b56a2;
     color: #fff;
 }
 
@@ -2278,7 +2278,7 @@ html.notTouch .spareParts__info:hover a {
     font-size: 1.5rem;
     line-height: 2.25rem;
     font-weight: 700;
-    color: #07b259;
+    color: #1b56a2;
     margin-bottom: 49px;
 }
 
@@ -2401,7 +2401,7 @@ html.notTouch .spareParts__info:hover a {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    background-color: #07b259;
+    background-color: #1b56a2;
     color: #fff;
     font-size: 0.875rem;
     height: 40px;
@@ -2417,11 +2417,11 @@ html.notTouch .spareParts__info:hover a {
 }
 
 html.notTouch .productCart__addToCart:hover {
-    background-color: #06c964;
+    background-color: #2677E0;
 }
 
 html.notTouch .productCart__addToKP:hover {
-    background-color: #06c964;
+    background-color: #2677E0;
 }
 
 .productCart__addToCart_icon {
@@ -2868,18 +2868,18 @@ html.notTouch .productCart__addToKP:hover {
 
     transition: color 0.3s;
 
-    color: #07b259;
+    color: #1b56a2;
 
     background-image: -webkit-gradient(
         linear,
         left top,
         right top,
-        color-stop(75%, #07b259),
+        color-stop(75%, #1b56a2),
         color-stop(75%, transparent)
     );
-    background-image: -webkit-linear-gradient(left, #07b259 75%, transparent 75%);
-    background-image: -o-linear-gradient(left, #07b259 75%, transparent 75%);
-    background-image: linear-gradient(to right, #07b259 75%, transparent 75%);
+    background-image: -webkit-linear-gradient(left, #1b56a2 75%, transparent 75%);
+    background-image: -o-linear-gradient(left, #1b56a2 75%, transparent 75%);
+    background-image: linear-gradient(to right, #1b56a2 75%, transparent 75%);
     background-position: 0 1.2em;
     background-repeat: repeat-x;
     background-size: 16px 1px;
@@ -2937,7 +2937,7 @@ html.notTouch .newsFilter__item:hover {
     width: 140px;
     height: 40px;
     border-radius: 40px;
-    background-color: #07b259;
+    background-color: #1b56a2;
     cursor: pointer;
     pointer-events: all;
 
@@ -3026,7 +3026,7 @@ html.notTouch .newsFilter__item:hover {
   height: 5px;
   min-width: 5px;
   min-height: 5px;
-  background-color: #07b259;
+  background-color: #1b56a2;
   border-radius: 100%;
   position: absolute;
   left: 0;
@@ -3068,7 +3068,7 @@ html.notTouch .newsFilter__item:hover {
 
 p a,
 .content-newsItemPage a {
-    color: #07b259;
+    color: #1b56a2;
     font-weight: 500;
 }
 
@@ -3195,7 +3195,7 @@ p h6,
     height: 5px;
     min-width: 5px;
     min-height: 5px;
-    background-color: #07b259;
+    background-color: #1b56a2;
     border-radius: 100%;
     position: absolute;
     left: 0;
@@ -3222,7 +3222,7 @@ p h6,
     position: relative;
     font-size: 1.125rem;
     font-weight: 500;
-    color: #07b259;
+    color: #1b56a2;
     padding: 0 28px;
 }
 
@@ -3231,7 +3231,7 @@ p h6,
     position: absolute;
     top: 9px;
     left: 0;
-    background-color: #07b259;
+    background-color: #1b56a2;
     width: 20px;
     height: 1px;
 }
@@ -3312,7 +3312,7 @@ p h6,
 
 .radioBlock .testContent__button:hover,
 .checkBlock .testContent__button:hover {
-    background-color: #06c964;
+    background-color: #2677E0;
 }
 
 .radioBlock .testList,
@@ -3634,17 +3634,17 @@ p h6,
         linear,
         left top,
         right top,
-        color-stop(75%, #07b259),
+        color-stop(75%, #1b56a2),
         color-stop(75%, transparent)
     );
-    background-image: -webkit-linear-gradient(left, #07b259 75%, transparent 75%);
-    background-image: -o-linear-gradient(left, #07b259 75%, transparent 75%);
-    background-image: linear-gradient(to right, #07b259 75%, transparent 75%);
+    background-image: -webkit-linear-gradient(left, #1b56a2 75%, transparent 75%);
+    background-image: -o-linear-gradient(left, #1b56a2 75%, transparent 75%);
+    background-image: linear-gradient(to right, #1b56a2 75%, transparent 75%);
     background-position: 0 1.2em;
     background-repeat: repeat-x;
     background-size: 16px 1px;
 
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .contactsFilter__item.active {
@@ -3654,7 +3654,7 @@ p h6,
 }
 
 html.notTouch .contactsFilter__item:hover {
-    color: #07b259;
+    color: #1b56a2;
     background-image: none;
 }
 
@@ -3736,7 +3736,7 @@ html.notTouch .contactsFilter__item:hover {
 }
 
 .input-search .autocomplete li:hover {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .input-search button {
@@ -3862,13 +3862,13 @@ html.notTouch .contactsFilter__item:hover {
 .customSelect .jq-selectbox li:hover,
 .customSelect .jq-select-multiple li:hover {
     background-color: #f7f7f7;
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .customSelect .jq-selectbox li.sel,
 .customSelect .jq-select-multiple li.sel {
     background-color: #f7f7f7;
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .filterBtn {
@@ -3929,7 +3929,7 @@ html.notTouch .popup-cross:hover {
 }
 
 html.notTouch .popup-cross:hover svg path {
-    fill: #07b259;
+    fill: #1b56a2;
 }
 
 .popup__title {
@@ -3985,8 +3985,8 @@ html.notTouch .popup-cross:hover svg path {
 }
 
 .switchblock__tab {
-    color: #07b259;
-    border-bottom: 1px solid #07b259;
+    color: #1b56a2;
+    border-bottom: 1px solid #1b56a2;
 
     cursor: pointer;
     pointer-events: all;
@@ -4032,7 +4032,7 @@ html.notTouch .switchblock__tab:hover {
 
 .popup__formField_form .form-btn button {
     color: white;
-    background-color: #07b259;
+    background-color: #1b56a2;
     border-radius: 40px;
     height: 40px;
     width: 185px;
@@ -4079,7 +4079,7 @@ html.notTouch .switchblock__tab:hover {
     min-height: 5px;
     height: 5px;
 
-    background-color: #07b259;
+    background-color: #1b56a2;
 
     border-radius: 100%;
 }
@@ -4113,23 +4113,23 @@ html.notTouch .btn-alfa:hover {
 }
 
 html.notTouch .link-phone:hover {
-    color: #06c964;
+    color: #2677E0;
 }
 
 .btn-search:hover .btn__icon svg path {
-    fill: #06c964;
+    fill: #2677E0;
 }
 
 html.notTouch .showMore__btn:hover {
-    background-color: #06c964;
+    background-color: #2677E0;
 }
 
 html.notTouch .filterBtn:hover {
-    background-color: #06c964;
+    background-color: #2677E0;
 }
 
 html.notTouch .popup__formField_form .form-btn button:hover {
-    background-color: #06c964;
+    background-color: #2677E0;
 }
 
 html.notTouch .footer__link-contact:hover {
@@ -4160,7 +4160,7 @@ html.notTouch .footer__link-contact:hover {
 
 .catalog__item_btn .btn-cart,
 .catalog__item_btn .btn-constructor {
-    background-color: #07b259;
+    background-color: #1b56a2;
     width: 55px;
     height: 30px;
     border-radius: 40px;
@@ -4421,7 +4421,7 @@ html.notTouch .footer__link-contact:hover {
 .mapBalloon__head_title {
     font-size: 14px;
     font-weight: 500;
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .mapBalloon__body_text,
@@ -4502,7 +4502,7 @@ html.notTouch #mapContact {
     font-size: 24px;
     font-weight: 600;
 
-    color: #07b259;
+    color: #1b56a2;
 
     margin-bottom: 15px;
 }
@@ -4729,19 +4729,19 @@ html.notTouch #mapContact {
 }
 
 .typical-link {
-    background: #07b259;
+    background: #1b56a2;
     border-radius: 25px;
     color: #fff;
     font-size: 14px;
     display: inline-block;
     margin-top: 4px;
     transition: all 0.4s ease 0s;
-    border: 2px solid #07b259;
+    border: 2px solid #1b56a2;
 }
 
 html.notTouch .alfaMenu__item:hover a {
     background-color: white;
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .catalog__item_addFavorite {
@@ -5577,7 +5577,7 @@ html.notTouch .filterBtn.downloadb:hover {
 }
 
 .analogueItem__row.matchGood.active .analogueItem__row_value {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .analogueItem__row_text {
@@ -6260,7 +6260,7 @@ html.notTouch .filterBtn.downloadb:hover {
 }
 
 html.notTouch .history__item .order__head_title:hover {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .order__head_copy {
@@ -7760,20 +7760,20 @@ html.notTouch .order__head_copy:hover + .order__copy_tip {
 .constructorRemoveFolder__button-yes,
 .constructorRemoveOffer__button-yes {
     background-color: white;
-    color: #07b259;
+    color: #1b56a2;
 
     box-sizing: border-box;
 
-    -webkit-box-shadow: inset 0px 0px 0px 2px #07b259;
-    -moz-box-shadow: inset 0px 0px 0px 2px #07b259;
-    box-shadow: inset 0px 0px 0px 2px #07b259;
+    -webkit-box-shadow: inset 0px 0px 0px 2px #1b56a2;
+    -moz-box-shadow: inset 0px 0px 0px 2px #1b56a2;
+    box-shadow: inset 0px 0px 0px 2px #1b56a2;
 }
 
 html.notTouch .constructorRemoveFolder__button-no:hover,
 html.notTouch .constructorRemoveOffer__button-no:hover,
 html.notTouch .constructorRemoveFolder__button-yes:hover,
 html.notTouch .constructorRemoveOffer__button-yes:hover {
-    background-color: #07b259;
+    background-color: #1b56a2;
     color: white;
 }
 
@@ -8331,7 +8331,7 @@ html.notTouch .constructorRemoveOffer__button-yes:hover {
     height: 19px;
 
     border-radius: 100%;
-    border: 1px solid #07b259;
+    border: 1px solid #1b56a2;
 
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -8492,7 +8492,7 @@ html.notTouch .constructorRemoveOffer__button-yes:hover {
 
 .wishMenu__list_item b {
     font-weight: 600;
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .wishMenu .bold_fold {
@@ -8570,7 +8570,7 @@ html.notTouch .constructorRemoveOffer__button-yes:hover {
 }
 
 .manager__email a {
-    color: #07b259;
+    color: #1b56a2;
     font-size: 14px;
 }
 
@@ -8729,7 +8729,7 @@ html.notTouch .constructorRemoveOffer__button-yes:hover {
 
 .wish__controls_link:hover {
     text-decoration: none;
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .wish__bottom {
@@ -9077,7 +9077,7 @@ html.notTouch .constructorRemoveOffer__button-yes:hover {
 }
 
 .matchGood__title.active {
-    /* color: #07b259; */
+    /* color: #1b56a2; */
 }
 
 #table_add_product {
@@ -9178,7 +9178,7 @@ html.notTouch .constructorRemoveOffer__button-yes:hover {
     height: 20px;
     border-radius: 100%;
 
-    background-color: #07b259;
+    background-color: #1b56a2;
 }
 
 .graph-point-red {
@@ -9368,7 +9368,7 @@ html.notTouch .constructorRemoveOffer__button-yes:hover {
     width: 100%;
 }
 .uiCatalog__toggleVisibilityType-list.uiCatalog__toggleVisibilityType-active path {
-    fill: #07b259;
+    fill: #1b56a2;
 }
 
 .uiCatalog__toggleVisibilityType-list {
@@ -9380,7 +9380,7 @@ html.notTouch .constructorRemoveOffer__button-yes:hover {
 }
 
 .uiCatalog__toggleVisibilityType-tile.uiCatalog__toggleVisibilityType-active path {
-    stroke: #07b259;
+    stroke: #1b56a2;
 }
 
 .uiCatalog__toggleVisibilityType-tile path {
@@ -9624,7 +9624,7 @@ html.notTouch .constructorRemoveOffer__button-yes:hover {
 }
 
 .category_tree_item._current a {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .addItemInWishlist__content .catalogMenu {
@@ -9900,7 +9900,7 @@ html.notTouch .scheme__item_wrapper:hover {
 }
 
 html.notTouch .scheme__item_wrapper:hover .scheme__item_title {
-    color: #07b259;
+    color: #1b56a2;
 
     -webkit-transition: z-index 0s, -webkit-transform 0.3s ease-in-out,
         -webkit-box-shadow 0.3s ease-in-out;
@@ -9945,7 +9945,7 @@ html.notTouch .scheme__item_wrapper:hover .scheme__item_title {
     margin-left: 5px;
     margin-right: 5px;
     font-size: 20px;
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .scheme__item_summ {
@@ -10001,7 +10001,7 @@ html.notTouch .scheme__item_wrapper:hover .scheme__item_title {
 
     box-sizing: border-box;
     border-radius: 50px;
-    border: 2px solid #07b259;
+    border: 2px solid #1b56a2;
 
     background-color: white;
     color: #07b159;
@@ -10041,7 +10041,7 @@ html.notTouch .schemesSwitch__item:hover {
 }
 
 .main-scheme-summ {
-    color: #07b259;
+    color: #1b56a2;
     font-size: 18px;
     line-height: 21px;
     font-weight: 600;
@@ -10112,7 +10112,7 @@ html.notTouch .schemesSwitch__item:hover {
     line-height: 36px;
     font-weight: 600;
 
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .scheme__summary_result .filterBtn {
@@ -10167,7 +10167,7 @@ html.notTouch .schemesSwitch__item:hover {
 }
 
 html.notTouch .orderActionPopup__body .choice-order-item:hover {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .clientsUser__form {
@@ -10583,7 +10583,7 @@ html.notTouch .content-clientsUser .company__remove:hover {
 }
 
 .content-alphaCompanyControl .tableCasual__row_item a.copy-green svg path {
-    fill: #07b259 !important;
+    fill: #1b56a2 !important;
 }
 
 .content-alphaCompanyControl .tableCasual__row_item a.view {
@@ -10721,7 +10721,7 @@ html.notTouch .content-clientsUser .company__remove:hover {
 }
 
 .content-alphaCompanyControl .columnTable__item_row a.copy-green svg path {
-    fill: #07b259 !important;
+    fill: #1b56a2 !important;
 }
 
 .content-alphaCompanyControl .columnTable__item_row a.view {
@@ -10982,7 +10982,7 @@ html.notTouch .content-clientsUser .company__remove:hover {
     height: 5px;
     min-width: 5px;
     min-height: 5px;
-    background-color: #07b259;
+    background-color: #1b56a2;
     border-radius: 100%;
     position: absolute;
     left: 0;
@@ -11146,7 +11146,7 @@ select.input-error + .jq-selectbox__select {
 }
 
 .chatSide__users_item a[checked="checked"] {
-    color: #07b259;
+    color: #1b56a2;
 
     pointer-events: none;
 }
@@ -11314,7 +11314,7 @@ html.notTouch .dialog__form .dialog__submit:hover {
 }
 
 .dialog__message_name.admin {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .dialog__message_wrap {
@@ -11539,7 +11539,7 @@ html.notTouch .dialog__form .dialog__submit:hover {
 }
 
 .catalogMenu__list_trigger a.active {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .wishWidget .tableCasual {
@@ -11736,7 +11736,7 @@ html.notTouch .header {
 }
 
 .videoSlider__item-active p {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .bannerSlider__item_text {
@@ -11953,7 +11953,7 @@ html.notTouch .header {
 
 .drill-down {
     /* font-style: italic; */
-    color: #07b259;
+    color: #1b56a2;
     cursor: pointer;
     pointer-events: all;
 }
@@ -12128,7 +12128,7 @@ html.notTouch .header {
 }
 
 .tableWide__form .searchWrapper path {
-    fill: #07b259;
+    fill: #1b56a2;
 }
 
 .client-control table .trInfo__title_wrapper .trInfo__item_title {
@@ -12581,7 +12581,7 @@ div[data-popup="changeConstructorCoefPopup"] .orderAction__form_buttons {
 }
 
 .favNom__item.active {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .goodRow .tableCasual__row {
@@ -12593,7 +12593,7 @@ div[data-popup="changeConstructorCoefPopup"] .orderAction__form_buttons {
 }
 
 .matchGoodDropdown .tableCasual__row {
-    color: #07b259;
+    color: #1b56a2;
     padding-top: 0px;
 }
 
@@ -12714,7 +12714,7 @@ div[data-popup="changeConstructorCoefPopup"] .orderAction__form_buttons {
     min-width: 25px;
     max-height: 25px;
     min-height: 25px;
-    background-color: #07b259;
+    background-color: #1b56a2;
     margin-bottom: 15px;
     border-radius: 100%;
 }
@@ -12938,7 +12938,7 @@ div[data-popup="changeConstructorCoefPopup"] .orderAction__form_buttons {
 }
 
 .catalogMenu__list_item.active .textWrapper a {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .popup-addItemInConstructor {
@@ -13479,7 +13479,7 @@ h5 {
 
 html.notTouch .uploadFileBlock__preview .removeChosenFile:hover path,
 html.notTouch .uploadFileBlock__preview-logo .removeChosenFile:hover path {
-    fill: #07b259 !important;
+    fill: #1b56a2 !important;
 
     transition: 0.3s;
 }
@@ -13514,7 +13514,7 @@ html.notTouch .uploadFileBlock__preview-logo .removeChosenFile:hover path {
 }
 
 .order-searchInResults-btn svg path {
-    fill: #07b259;
+    fill: #1b56a2;
 }
 
 .order-searchInResults {
@@ -13522,7 +13522,7 @@ html.notTouch .uploadFileBlock__preview-logo .removeChosenFile:hover path {
 }
 
 html.notTouch .catalogMenu__list_item a:hover {
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .catalogMenu__list_item-sbold {
@@ -13531,11 +13531,11 @@ html.notTouch .catalogMenu__list_item a:hover {
 
 .filterBtn.btnExit {
     background-color: white;
-    color: #07b259;
+    color: #1b56a2;
     box-sizing: border-box;
-    -webkit-box-shadow: inset 0px 0px 0px 2px #07b259;
-    -moz-box-shadow: inset 0px 0px 0px 2px #07b259;
-    box-shadow: inset 0px 0px 0px 2px #07b259;
+    -webkit-box-shadow: inset 0px 0px 0px 2px #1b56a2;
+    -moz-box-shadow: inset 0px 0px 0px 2px #1b56a2;
+    box-shadow: inset 0px 0px 0px 2px #1b56a2;
 
     margin-left: 29px;
     display: table !important;
@@ -13543,7 +13543,7 @@ html.notTouch .catalogMenu__list_item a:hover {
 }
 
 html.notTouch .filterBtn.btnExit:not(.disabled):hover {
-    background-color: #07b259;
+    background-color: #1b56a2;
     color: white;
 }
 
@@ -13692,7 +13692,7 @@ html.notTouch .filterBtn.btnExit:not(.disabled):hover {
 
 .multiSelect__dropdown_item.selected {
     background-color: #f7f7f7;
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .multiSelect__window {
@@ -13741,7 +13741,7 @@ html.notTouch .filterBtn.btnExit:not(.disabled):hover {
 
 html.notTouch .multiSelect__dropdown_item:hover {
     background-color: #f7f7f7;
-    color: #07b259;
+    color: #1b56a2;
 }
 
 .order-filter__dates {
@@ -15997,7 +15997,7 @@ html.notTouch .multiSelect__dropdown_item:hover {
 .filterBtn-transparent {
     background: transparent;
     color: #000;
-    border: 1px solid #07b259;
+    border: 1px solid #1b56a2;
 }
 
 html.notTouch .filterBtn-transparent:hover {
@@ -16257,7 +16257,7 @@ html.notTouch .filterBtn-transparent:hover {
 }
 
 .linkElem:hover {
-    color: #06c964;
+    color: #2677E0;
 }
 
 .checkLabel-grey .checkLabel__text {
@@ -16450,7 +16450,7 @@ html.notTouch .filterBtn-transparent:hover {
 }
 .aboutorder__button:hover
 {
-    background-color: #07b259;
+    background-color: #1b56a2;
 }
 .aboutorder__info
 {
@@ -16507,4 +16507,67 @@ html.notTouch .filterBtn-transparent:hover {
 .contacts_staff_info
 {
     margin-bottom: 20px;
+}
+
+
+.solutions__container
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,350px);
+    grid-gap: 40px;
+    justify-content: center;
+
+}
+.solutions_el
+{
+    width: 100%;
+    height: 340px;
+    border-radius: 5px;
+    border: 1.5px solid #C6C5C5;
+    position: relative;
+    overflow: hidden;
+}
+.solutions_el_image
+{
+    height: 250px;
+}
+.solutions_el_image img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.solutions_el_card_name
+{
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 15px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.solutions_el_card_requirements
+{
+    border-top: 0.5px solid gray;
+    padding: 10px;
+    margin-top: 5px;
+}
+.solutions_el_card
+{
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: 250px;
+    background-color: white;
+    transition-duration: 0.8s;
+}
+.solutions_el:hover .solutions_el_card
+{
+    top:0;
+}
+.services__ul li
+{
+    margin: 18px 0 18px 20px;
+    list-style-type: disc;
 }

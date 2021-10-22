@@ -8,7 +8,7 @@
     <meta name="csrf-param" content="_csrf-frontend">
     <meta name="csrf-token" content="_qtifBQbaU5Kjtz3-FFDKxNvXvvBxUeky2jC0DEdZu-bxDote0E6fhyjkLSUMG5gZAcwmrKyFZC8HYSqA1xShg==">
         {% load static %}
-        <title>Новости</title>
+        <title>Услуги</title>
     <meta name="Description" content="Надежные решения для промышленной фильтрации воды."> 
     <meta name="Keywords" content="Meta Keywords"> 
     <meta property="og:title" content="Каталог" /> 
@@ -20,8 +20,7 @@
     <link href="{% static 'web/css/plugin/datepicker.css' %}" rel="stylesheet">
     <link href="{% static 'web/css/basket.css' %}" rel="stylesheet">
     <link rel="icon" type="image/png" href="/media/images/favicon.png" sizes="32x32">
-    <!-- <link href="https://yandex.st/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
-    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=x3Ts6t61z0JautYfyhVvxu2pTr9dFJUHbpms4d2JnpFIC0UN2EpihQsnZJ4Tb3UOMvI4j1sXmIsjaGW6070oWQ" charset="UTF-8"></script><script>
+    <script>
         var is_auth = '0';
         var chat_close = '0';
         var chat_time_update = '20';
@@ -35,36 +34,20 @@
 
 <ul class="breadCrumb">
     <li class="breadCrumb__item"><a href="/">Главная</a></li>
-    <li class="breadCrumb__item"><span>Новости</span></li>
+    <li class="breadCrumb__item"><span>Услуги</span></li>
 </ul>
 
 
 <div class="content content-newsPage">
     <div class="topContainer">
-        <div class="pageTitle">Новости</div>
+        <div class="pageTitle">Услуги</div>
     </div>
-
-    <div class="plateList">
-        {% for News in news %}
-        <a href="/news/{{News.id}}" class="catalog__item" data-type="video">
-            <div class="catalog__item_top">
-                <div class="catalog__item_image " style="background-image: url({{News.Image.url}});">
-                </div>
-                <div class="catalog__item_text">{{News.Title}}</div>
-            </div>
-            <div class="catalog__item_bottom">
-                <div class="catalog__item_mark">{{News.Date.date}}</div>
-            </div>
-        </a>
-        {% endfor %}     
-    </div>
-
-    <!--
-    <div class="showMore">
-        <div class="showMore__btn" action="SHOW_MORE_NEWS">Показать ещё</div>
-    </div>
-    -->
-
+    <ul class="services__ul">
+        <li>Проектирование систем водоподготовки в коттеджах и на производстве</li>
+        <li>Комплекс работ по монтажу пуско-кладке оборудования</li>
+        <li>Анализ воды</li>
+        <li>Сервисное обслуживание</li>
+    </ul>
 </div>
       
 

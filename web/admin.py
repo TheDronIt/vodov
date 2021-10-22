@@ -3,16 +3,6 @@ from .models import *
 from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
-class NewsAdminForm(forms.ModelForm):
-    Text = forms.CharField(widget=CKEditorUploadingWidget())
-    class Meta:
-        model = News
-        fields = '__all__'
-
-class NewsAdmin(admin.ModelAdmin):
-    form = NewsAdminForm
-
-
 
 
 class Household_filtersAdminForm(forms.ModelForm):
@@ -108,6 +98,6 @@ admin.site.register(Filter_materials, Filter_materialsAdmin)
 admin.site.register(Coarse_filters, Coarse_filtersAdmin)
 admin.site.register(Basket)
 admin.site.register(Order, OrderAdmin)
-admin.site.register(News, NewsAdmin)
+admin.site.register(Solutions)
 
 

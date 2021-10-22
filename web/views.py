@@ -447,16 +447,10 @@ def basket(request):
 	return render(request, 'page/basket.html',data)
 
 
-def news(request):
-	news = News.objects.all().order_by("-id")
-	return render(request, 'page/news.html', locals())
+def solutions(request):
+	solutions = Solutions.objects.all().order_by("-id")
+	return render(request, 'page/solutions.html', locals())
 
-def news_page(request, id):
-	try:
-		news = News.objects.get(id=id)
-	except:
-		return HttpResponseRedirect("/news") #можно на 404
-	return render(request, 'page/newspage.html',locals())
 
 
 def aboutorder(request):
@@ -576,15 +570,6 @@ def search(request):
 					vendor = str(i.Vendor),
 					link = "/product/8/"+str(i.id)
 				))
-
-			product = News.objects.filter(Title__icontains=q)
-			for i in product:
-				search.append(dict(
-					title = str(i.Title),
-					image = str(i.Image.url),
-					link = "/news/"+str(i.id),
-					date =  str(i.Date.strftime("%d.%m.%Y"))
-				))
 			
 			if len(search) == 0:
 				ERROR = "По вашему запросу ничего не найдено."
@@ -666,3 +651,6 @@ def search(request):
 		'q':q
 	}
 	return render(request, 'page/search.html', data)
+
+def services(request):
+	return render(request, 'page/services.html')
