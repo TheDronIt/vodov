@@ -6,39 +6,10 @@ import random
 
 
 def index(request):
-	news_len = len(News.objects.all())
-
-	if news_len >= 2:
-		news = News.objects.all().order_by("-id")[:2]
-		news1_image = news[0].Image.url
-		news1_headline = news[0].Title
-		news1_link = "/news/"+str(news[0].id)
-		news2_image = news[1].Image.url
-		news2_headline = news[1].Title
-		news2_link = "/news/"+str(news[1].id)
-	elif news_len == 0:
-		news1_image = "/static/web/img/smile-man.png"
-		news1_headline = "Добро пожаловать!"
-		news1_link = "#"
-		news2_image = "/static/web/img/smile-man2.png"
-		news2_headline = "Хорошего дня!"
-		news2_link = "#"
-	elif news_len == 1:
-		news = News.objects.all().order_by("-id")[:1]
-		news1_image = news[0].Image.url
-		news1_headline = news[0].Title
-		news1_link = "/news/"+str(news[0].id)
-		news2_image = "/static/web/img/smile-man2.png"
-		news2_headline = "Хорошего дня!"
-		news2_link = "#"
+	slider = Slider.objects.all()
 
 	data = {
-		'news1_image': news1_image,
-		'news1_headline': news1_headline,
-		'news1_link': news1_link,
-		'news2_image': news2_image,
-		'news2_headline': news2_headline,
-		'news2_link': news2_link,
+		'slider': slider 
 	}
 	return render(request, 'page/index.html', data) 
 

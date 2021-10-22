@@ -99,5 +99,6 @@ admin.site.register(Coarse_filters, Coarse_filtersAdmin)
 admin.site.register(Basket)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(Solutions)
+admin.site.register(Slider)
 
 

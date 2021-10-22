@@ -943,3 +943,16 @@ class Solutions(models.Model):
 
 	def __str__(self):
 		return str(self.Name)
+
+
+class Slider(models.Model):
+	class Meta:
+		verbose_name = 'Слайдер'
+		verbose_name_plural = 'Слайдер'
+
+	Title = models.CharField(max_length=120, verbose_name='Заголовок')
+	Image = models.ImageField(upload_to='index_slider/', verbose_name='Изображение')
+	Link =models.CharField(max_length=120, verbose_name='Ссылка')
+
+	def __str__(self):
+		return str(self.Title)
